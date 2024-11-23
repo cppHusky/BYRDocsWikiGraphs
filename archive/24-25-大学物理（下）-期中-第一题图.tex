@@ -1,6 +1,7 @@
 \documentclass{standalone}
 \usepackage{preset}
 \begin{document}
+%24-25-大学物理（下）期中-第一题图
 \begin{tikzpicture}
 	\draw[draw=white,fill=white](-2.4,-1.1)rectangle(3.1,1.1);
 	\draw[dashed](-2,0)--(0,0);
@@ -9,17 +10,14 @@
 	\draw(3,-1)--(3,1);
 	\draw[->](-2,.5)--(0,0);
 	\draw[->](0,0)--(3,.75);
-	\node(a)at(-2.2,.25){$a$};
-	\node(S)at(-2,.8){$S$};
-	\begin{scope}
-		\clip(0,0)rectangle(3,-1);
-		\foreach \i in {0,.05,...,3.1}{
-			\draw[gray](\i,0)--+(-.08,-.1);
-		}
-	\end{scope}
+	\node(a)at(-2.2,.25){\(a\)};
+	\node(S)at(-2,.8){\(S\)};
+	\foreach \i in {.05,.1,...,3.05}{
+		\draw[gray](\i,0)--+(-.08,-.1);
+	}
 	\draw[<->](-2,-.4)--(0,-.4);
-	\node[fill=white]at($(-2,-.4)!.5!(0,-.4)$){$B$};
+	\node[fill=white]at($(-2,-.4)!.5!(0,-.4)$){\(B\)};
 	\draw[<->](0,-.4)--(3,-.4);
-	\node[fill=white]at($(0,-.4)!.5!(3,-.4)$){$C$};
+	\node[fill=white]at($(0,-.4)!.5!(3,-.4)$){\(C\)};
 \end{tikzpicture}
 \end{document}
