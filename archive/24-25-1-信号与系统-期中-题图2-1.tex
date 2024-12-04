@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}
+	\pgfdeclarelayer{background}
+	\pgfsetlayers{background,main}
+	\begin{pgfonlayer}{background}
+		\draw[draw=white,fill=white](-2.3,-.5)rectangle(1.6,1.8);
+	\end{pgfonlayer}
+	\datavisualization[school book axes,visualize as line,style sheet=shades of blue,x axis={label={\(t\)}},y axis={label={\(f(t)\)}}]
+		data point[x=-2,y=0]
+		data point[x=-2,y=1]
+		data point[x=0,y=1]
+		data point[x=1,y=0];
+\end{tikzpicture}
+\end{document}
