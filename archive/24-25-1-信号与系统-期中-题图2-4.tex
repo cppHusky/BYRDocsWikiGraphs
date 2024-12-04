@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}
+	\pgfonlayer{background}
+		\draw[draw=white,fill=white](-1.1,-2.5)rectangle(3,.6);
+	\endpgfonlayer
+	\node(Sigma)at(0,0)[draw,circle]{\(\Sigma\)};
+	\node(z1)at(1.5,-.8)[draw,rectangle]{\(z^{-1}\)};
+	\node(z2)at(1.5,-2)[draw,rectangle]{\(z^{-1}\)};
+	\draw[->](-1,0)--(Sigma.west)node at(-1,.3){\(x[n]\)};
+	\draw[->](Sigma.east)--(2.5,0)node at(2.5,.3){\(y[n]\)};
+	\draw[->](1.5,0)--(z1.north) (z1.south)--(1.5,-1.4)--(.5,-1.4)--(Sigma);
+	\draw[->](z1.south)--(z2.north) (z2.west)--(0,-2)--(Sigma);
+	\node at(.75,-1.2){\(1.3\)};
+	\node at(-.5,-1.5){\(-0.4\)};
+\end{tikzpicture}
+\end{document}
