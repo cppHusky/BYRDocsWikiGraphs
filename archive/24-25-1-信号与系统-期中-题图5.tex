@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}
+	\pgfonlayer{background}
+		\draw[draw=white,fill=white](-4.5,-2)rectangle(4.5,.8);
+	\endpgfonlayer
+	\node(h1)at(0,0)[draw,rectangle]{\(h_{1}(t)\)};
+	\node(h2)at(-2,0)[draw,rectangle]{\(h_{2}(t)\)};
+	\node(h3)at(2,0)[draw,rectangle]{\(h_{3}(t)\)};
+	\node(h1d)at(0,-1.5)[draw,rectangle]{\(h_{1}(t)\)};
+	\node(e)at(-4,.3){\(e(t)\)};
+	\node(r)at(4,.3){\(r(t)\)};
+	\path[->](-4,0)edge(h2.west) (h2.east)edge(h1.west) (h1.east)edge(h3.west) (h3.east)edge(4,0);
+	\draw(h3.south)--(2,-1.5)edge[->](h1d.east) (h1d.west)--(-2,-1.5)edge[->](h2.south);
+\end{tikzpicture}
+\end{document}
