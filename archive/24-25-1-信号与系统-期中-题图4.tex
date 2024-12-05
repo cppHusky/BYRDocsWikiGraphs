@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}
+	\pgfonlayer{background}
+		\draw[draw=white,fill=white](-1.2,-.5)rectangle(3.7,2.9);
+	\endpgfonlayer
+	\datavisualization[school book axes,visualize as line,x axis={label={\(t\)}},y axis={label={\(f(t)\)}}]
+		data{
+			x,y
+			-1,0
+			1,2
+			3,0
+		};
+	\draw[dashed](1,0)--(1,2)--(0,2);
+\end{tikzpicture}
+\end{document}
