@@ -1,0 +1,41 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+	\pgfonlayer{background}
+		\draw[draw=white,fill=white](-0.6,-2.3)rectangle(9,2.2);
+	\endpgfonlayer
+	\begin{scope}
+		\datavisualization[
+			school book axes,
+			x axis={label={\(\omega\)},min value=-.5,max value=8,unit length=.4cm,ticks={major={at={
+				(3) as \(3\omega_{1}\),
+				(5) as \(5\omega_{1}\),
+				(7) as \(7\omega_{1}\),
+			}}}},
+			y axis={label={\(C_{n}\)},max value=7,unit length=.2cm,ticks=none}
+		];
+		\foreach \x/\y/\val in {0/.4/2,1.2/1.2/6,2/.8/4,2.8/.4/2}{
+			\draw[fill,red](\x,\y)circle(.05)node[right]{\val};
+			\draw[red](\x,0)--(\x,\y);
+		}
+		\node at(1.6,-2){(a)};
+	\end{scope}
+	\begin{scope}[shift={(5,0)}]
+		\datavisualization[
+			school book axes,
+			x axis={label={\(\omega\)},min value=-.5,max value=8,unit length=.4cm,ticks={major={at={
+				(3)as\(3\omega_{1}\),
+				(5)as\(5\omega_{1}\),
+				(7)as\(7\omega_{1}\),
+			}}}},
+			y axis={label={\(\varphi_{n}\)},max value=7,unit length=.2cm,ticks=none}
+		];
+		\foreach \x/\y/\val in {0/0/,1.2/-1.0472/\(-\frac{2\pi}{3}\),2/0/,2.8/1.5708/\(\pi\)}{
+			\draw[fill,red](\x,\y)circle(.05)node[right]{\val};
+			\draw[red](\x,0)--(\x,\y);
+		}
+		\node at(1.6,-2){(b)};
+	\end{scope}
+\end{tikzpicture}
+\end{document}
