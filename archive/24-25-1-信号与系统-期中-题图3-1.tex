@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}
+	\pgfonlayer{background}
+		\draw[draw=white,fill=white](-0.8,-0.5)rectangle(3.7,2.9);
+	\endpgfonlayer
+	\datavisualization[school book axes,visualize as line,x axis={label={\(t\)}},y axis={label={\(f(5-2t)\)}}]
+		data{
+			x,y
+			1,0
+			1.73205,2
+			3,2
+			3,0
+		};
+\end{tikzpicture}
+\end{document}
