@@ -1,3 +1,7 @@
+# tex files not in archive
+*.tex
+!archive/*.tex
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
