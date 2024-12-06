@@ -1,0 +1,52 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}
+	\pgfonlayer{background}
+		\draw[draw=white,fill=white](-1.4,-1.8)rectangle(7.6,2.2);
+	\endpgfonlayer
+	\begin{scope}
+		\datavisualization[
+			school book axes,
+			visualize as smooth line,
+			x axis={label={\(t\)}},
+			y axis={label={\(x(t)=\cos(0.5\pi t)\)}},
+		]data[format=function]{
+			var x : interval[-1:1];
+			func y = cos(90*\value x);
+		};
+	\end{scope}
+	\begin{scope}[shift={(3,0)}]
+		\datavisualization[
+			school book axes,
+			visualize as smooth line,
+			x axis={label={\(t\)}},
+			y axis={label={\(x'(t)\)},unit length=8mm,ticks={major at={
+				(pi/2)as\(\frac{\pi}{2}\),
+				(-pi/2)as\(-\frac{\pi}{2}\),
+			}}}
+		]data[format=function]{
+			var x : interval[-1:1];
+			func y = -pi*sin(90*\value x)/2;
+		};
+	\end{scope}
+	\begin{scope}[shift={(6,0)}]
+		\datavisualization[
+			school book axes,
+			visualize as smooth line,
+			x axis={label=\(t\)},
+			y axis={label={\(x''(t)\)},unit length=5mm,max value=2.5,ticks={major at={
+				(-pi*pi/4)as\(-\frac{\pi^{2}}{4}\)
+			}}}
+		]data[format=function]{
+			var x : interval[-1:1];
+			func y = -pi*pi*cos(90*\value x)/4;
+		};
+		\path(1,0)edge[->](1,1) (-1,0)edge[->](-1,1);
+		\node at(1,1.2){\(\infty\)};
+		\node at(-1,1.2){\(\infty\)};
+		\node at(-.7,.3){\((\frac{\pi}{2})\)};
+		\node at(.7,.3){\((\frac{\pi}{2})\)};
+	\end{scope}
+\end{tikzpicture}
+\end{document}
