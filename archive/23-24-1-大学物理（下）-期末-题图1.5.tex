@@ -1,0 +1,12 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}
+	\pgfonlayer{background}
+		\draw[draw=white,fill=white](-.5,-.5)rectangle(4.5,3.3);
+	\endpgfonlayer
+	\draw(0,3)node[left]{\(p\)}--(0,0)--(3,0)node[below]{\(V\)};
+	\draw[color=red,domain=1.05:3]plot(\x,3/\x)node[right,black]{\(T+\Delta T\)};
+	\draw[color=green,domain=.7:3]plot(\x,2/\x)node[right,black]{\(T\)};
+\end{tikzpicture}
+\end{document}
