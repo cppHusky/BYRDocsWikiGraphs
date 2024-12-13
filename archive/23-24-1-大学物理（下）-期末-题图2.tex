@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}
+	\pgfonlayer{background}
+		\draw[draw=white,fill=white](-.5,-.5)rectangle(4.3,2.4);
+	\endpgfonlayer
+	\draw(0,2)node[right]{\(F(v)\)}--(0,0)node[below left]{\(0\)}--(3.2,0)node[below]{\(v_{0}\)}--(4,0)node[below]{\(v\)};
+	\draw[color=purple,ultra thick,domain=0:3.2]plot(\x,\x*\x/8);
+	\draw[color=purple,ultra thick,domain=3.2:4]plot(\x,0);
+	\draw[dashed](3.2,0)--(3.2,1.28);
+	\draw[fill=white](3.2,0)circle(.05);
+\end{tikzpicture}
+\end{document}
