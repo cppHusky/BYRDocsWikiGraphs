@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x={(8mm,6mm)},y={(0mm,15mm)},z={(18mm,-11mm)}]
+	\draw[->](-2,0,0)--(2.5,0,0)node[above]{光轴};
+	\draw[->](-2,0,1.6)--(2.5,0,1.6)node[below]{水平};
+	\draw[->](0,-2,0)--(0,2,0)node[left]{快轴};
+	\draw[->](0,-2,1.6)--(0,2,1.6);
+	\draw[->](0,0,0)--(0,0,3);
+	\draw(-1,-1,-.1)--(-1,1,-.1)--(1,1,-.1) (-1,-1,.1)--(-1,1,.1)--(1,1,.1)--(1,-1,.1)--cycle;
+	\foreach \x/\y in {-1/-1,-1/1,1,1}{
+		\draw(\x,\y,-.1)--(\x,\y,.1);
+	}
+	\draw(.71325,.700909,1.5)arc(44.5:240:1) (0,0,1.6)circle(1);
+	\draw[dashed](-1.6,-.4,1.6)--(2.4,.6,1.6)node[above]{\(P\)};
+\end{tikzpicture}
+\end{document}
