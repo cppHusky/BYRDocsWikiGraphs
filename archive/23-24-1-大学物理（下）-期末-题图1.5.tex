@@ -1,12 +1,15 @@
 \documentclass{standalone}
 \usepackage{preset}
 \begin{document}
-\begin{tikzpicture}
-	\pgfonlayer{background}
-		\draw[draw=white,fill=white](-.5,-.5)rectangle(4.5,3.3);
-	\endpgfonlayer
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle]
 	\draw(0,3)node[left]{\(p\)}--(0,0)--(3,0)node[below]{\(V\)};
-	\draw[color=red,domain=1.05:3]plot(\x,3/\x)node[right,black]{\(T+\Delta T\)};
-	\draw[color=green,domain=.7:3]plot(\x,2/\x)node[right,black]{\(T\)};
+	\draw[color=red,thick,domain=1.05:3]plot(\x,3/\x)node[right,black]{\(T+\Delta T\)};
+	\draw[color=green,thick,domain=.7:3]plot(\x,2/\x)node[right,black]{\(T\)};
+	\draw[blue,thick,->](1.41421,1.41421)--(2.12132,1.41421);
+	\draw[blue,thick,->](1.41421,1.41421)--(1.41421,2.12132);
+	\path[draw,blue,thick,->](1.41421,1.41421)arc(205:180:2.5);
+	\node at(1.5,1.7){\tiny1};
+	\node at(1.8,1.3){\tiny2};
+	\node at(1.08,2.1){\tiny3};
 \end{tikzpicture}
 \end{document}
