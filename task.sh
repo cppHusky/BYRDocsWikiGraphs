@@ -6,6 +6,6 @@ xelatex "${tex}" -output-directory="./"
 retval=$?
 if [[ "${retval}" -eq 0 ]]; then
 	inkscape --export-type=svg -n 1 "${base}.pdf"
-	rm -v "${base}.aux" "${base}.log" "${base}.pdf"
+	rm -v "${base}.aux" "${base}.log"
 fi
 exit "${retval}"

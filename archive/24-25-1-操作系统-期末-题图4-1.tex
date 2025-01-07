@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=1mm]
+	\newcommand{\IO}[1][1]{I\slash O\textsubscript{#1}}
+	\foreach \y/\n/\l in {0/A/150,-1/B/150,-2/C/160}{
+		\draw(0,\y)node[above left]{\n}--(\l,\y);
+	}
+	\foreach \x in {0,10,30,60,70,110,130,150}{
+		\draw(\x,0)--(\x,.2);
+	}
+	\foreach \x/\t/\r in {5/10/\IO,20/20/CPU,45/30/\IO,65/10/CPU,90/40/\IO,120/20/CPU,140/20/\IO}{
+		\node at(\x,.3){\r};
+		\node at(\x,-.2){\t\ ms};
+	}
+	\foreach \x in {0,30,60,90,120,150}{
+		\draw(\x,-1)--(\x,-.8);
+	}
+	\foreach \x/\t/\r in {15/30/\IO[2],45/30/CPU,75/30/\IO,105/30/CPU,135/30/\IO}{
+		\node at(\x,-.7){\r};
+		\node at(\x,-1.2){\t\ ms};
+	}
+	\foreach \x in {0,40,60,90,160}{
+		\draw(\x,-2)--(\x,-1.8);
+	}
+	\foreach \x/\t/\r in {20/40/CPU,50/20/\IO,75/30/CPU,125/70/\IO[2]}{
+		\node at(\x,-1.7){\r};
+		\node at(\x,-2.2){\t\ ms};
+	}
+\end{tikzpicture}
+\end{document}
