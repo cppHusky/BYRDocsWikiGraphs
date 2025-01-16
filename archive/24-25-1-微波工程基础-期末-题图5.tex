@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=20mm,y=15mm,circuit ee IEC]
+	\draw(0,0)node[draw,left,circle,inner sep=0,minimum width=4]{}
+		to[resistor={info=\(0.24\lambda\)}](1,0)
+		to[resistor={info=\(\lambda/8\)}](2,0)
+		to[resistor={info=\(0.12\lambda\)}](3,0)
+		node[draw,right,circle,inner sep=0,minimum width=4]{};
+	\draw(0,-2)node[draw,left,circle,inner sep=0,minimum width=4]{}
+		to[resistor](1,-2)
+		to[resistor](2,-2)
+		to[resistor](3,-2)
+		node[draw,right,circle,inner sep=0,minimum width=4]{};
+	\draw(1,0)to[resistor={point left,info=\(l_2\)}](1.8,-1)
+		to(1.8,-3)to[resistor](1,-2);
+	\draw(2,0)to[resistor={point left,info=\(l_1\)}](2.8,-1)
+		to(2.8,-3)to[resistor](2,-2);
+	\node[contact]at(1,0){};
+	\node[contact]at(2,0){};
+	\node[contact]at(1,-2){};
+	\node[contact]at(2,-2){};
+	\node at(-.2,-1){\(P1\)};
+	\node at(3.2,-1){\(P2\)};
+\end{tikzpicture}
+\end{document}
