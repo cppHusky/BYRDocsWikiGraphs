@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=30mm,y=15mm,every node/.style={rectangle},->]
+	\node(电压比较器)at(1,1)[draw]{电压比较器};
+	\node(可控增益放大器)at(2,1)[draw]{\parbox{5em}{\centering 可控增益\\放大器\(A_2\)}};
+	\node(直流放大器)at(1,0)[draw]{直流放大器\(A_1\)};
+	\node(低通滤波器)at(2,0)[draw]{低通滤波器};
+	\node(检波器)at(2.8,0)[draw]{检波器};
+	\draw(.2,1)node[left,draw,circle,minimum width=4,inner sep=0]{}(.2,1)node[above right]{\(v_r\)}--(电压比较器.west);
+	\draw(2,1.6)node[above,draw,circle,minimum width=4,inner sep=0]{}node[right]{\(v_i\)}--(可控增益放大器.north);
+	\draw(电压比较器.east)node[above right]{\(v_e\)}--(可控增益放大器.west);
+	\draw(可控增益放大器.east)--(3.4,1)node[above left]{\(v_0\)};
+	\draw(可控增益放大器.east)--(3.2,1)--(3.2,0)--(检波器.east);
+	\draw(检波器.west)--(低通滤波器.east);
+	\draw(低通滤波器.west)--(直流放大器.east);
+	\draw(直流放大器.north)--(电压比较器.south)node[below left]{\(v_1\)};
+	\draw[dashed,-](.5,-.5)--++(0,2)--++(1,0)--++(0,-1.2)--++(1.6,0)--++(0,-.8)--cycle;
+	\draw[dashed](1.6,.5)rectangle(2.4,1.5);
+	\node at(1,1.6){\scriptsize 反馈控制器};
+	\node at(1.8,1.6){\scriptsize 对象};
+\end{tikzpicture}
+\end{document}
