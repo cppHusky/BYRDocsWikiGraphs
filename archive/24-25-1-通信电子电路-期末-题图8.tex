@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+%\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=12mm,y=15mm]
+%\end{tikzpicture}
+\begin{circuitikz}[background rectangle/.style={fill=white},show background rectangle,x=20mm,y=20mm]
+	\draw(2,1.5)to(2,2)to(1,2)to[C=\(C_3\)](0,2)to[L=\(L_3\)](0,1)to[L=\(L_2\)](0,0)to[C=\(C_2\)](1,0)to(2,0)to(2,.5);
+	\draw(2.5,.5)to(1.5,.5)to[C,a=\(C_1\)](1.5,1.5)to(2.5,1.5)to[L=\(L_1\)](2.5,.5);
+	\node[npn](Q)at(1,1){};
+	\node at(Q.center){\(T\)};
+	\draw(0,1)to(Q.B);
+	\draw(1,2)to(Q.C);
+	\draw(Q.E)to[short,-*](1,0)node[ground]{};
+	\node at(2.2,1){\(f_{01}\)};
+	\node at(.6,.6){\(f_{02}\)};
+	\node at(.6,1.4){\(f_{03}\)};
+\end{circuitikz}
+\end{document}
