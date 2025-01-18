@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=12mm,y=15mm,circuit ee IEC]
+	\foreach \contact/\x in {1/1,2/2,3/3}{
+		\node[contact](bottom contact \contact)at(\x,0){};
+	}
+	\foreach \contact/\x in {1/1,2/2}{
+		\node[contact](top contact \contact)at(\x,2){};
+	}
+	\node[contact](top contact 3)at(3,1){};
+	\draw(bottom contact 1)--(bottom contact 2)--(bottom contact 3);
+	\draw(top contact 1)--(top contact 2)--++(1,0);
+	\draw(top contact 1)to[resistor={info=\(R_{s0}\)}](bottom contact 1);
+	\draw(top contact 1)to++(-1,0)to[current source={direction info={<-},info=\(i_s\)}]++(0,-2)to(bottom contact 1);
+	\draw(top contact 2)to[capacitor={info=\(C\)}](bottom contact 2);
+	\draw(bottom contact 3)to[inductor={info=\(L_2\)}](top contact 3)to[inductor={info=\(L_1\)}](3,2);
+	\draw(bottom contact 3)to++(1,0)to[resistor={info'=\(v_0\),info=\(R_L\)}]++(0,1)to(top contact 3);
+\end{tikzpicture}
+\end{document}
