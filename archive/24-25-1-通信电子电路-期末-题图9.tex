@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=30mm,y=20mm,->,every node/.style={draw}]
+	\node(Psi)[draw=none]at(.2,0){\(P_{si}\)};
+	\node(低噪声放大器)[isosceles triangle,minimum width=40,inner sep=1]at(.8,0){\parbox{3em}{\centering 低噪声\\放大器}};
+	\node(带通滤波器1)[rectangle,minimum width=40]at(2,0){\parbox{3em}{带通滤波器1}};
+	\node(混频器)[forbidden sign,inner sep=0,minimum size=40]at(3,0){};
+	\node[forbidden sign,rotate=90,inner sep=0,minimum size=40]at(3,0){};
+	\node[draw=none]at(3,.5){混频器};
+	\node(本振)[draw=none]at(3,-1){本振};
+	\node(带通滤波器2)[rectangle,minimum width=40]at(4,0){\parbox{3em}{带通滤波器2}};
+	\node(中频放大器)[isosceles triangle,minimum width=40,inner sep=1]at(4.8,0){\parbox{3em}{\centering 中频\\放大器}};
+	\node(ADC)[rectangle,minimum height=60]at(5.8,0){ADC};
+	\draw(Psi)--(低噪声放大器);
+	\draw(低噪声放大器)--(带通滤波器1);
+	\draw(带通滤波器1)--(混频器);
+	\draw(本振)--(混频器);
+	\draw(混频器)--(带通滤波器2);
+	\draw(带通滤波器2)--(中频放大器);
+	\draw(中频放大器.east)node[above right,draw=none]{\(P_{so}\)}--(ADC);
+\end{tikzpicture}
+\end{document}
