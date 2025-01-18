@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=15mm,y=15mm]
+	\node(相加器)at(2.5,1)[draw,rectangle]{相加器};
+	\node(相乘器1)at(1,0)[draw,rectangle]{相乘器};
+	\node(相乘器2)at(1,2)[draw,rectangle]{相乘器};
+	\draw[->](1,.5)node[above]{\(\sin\omega_0t\)}--(相乘器1.north);
+	\draw[->](1,1.5)node[below]{\(\sin\qty(\omega_0t+\varphi)\)}--(相乘器2.south);
+	\draw[->](0,0)node[left]{Q路信号}--(相乘器1.west) (相乘器1.east)--(2.5,0)--(相加器.south);
+	\draw[->](0,2)node[left]{I路信号}--(相乘器2.west) (相乘器2.east)--(2.5,2)--(相加器.north);
+	\draw[->](相加器.east)--(3.6,1)node[above left]{\(v_o(t)\)};
+\end{tikzpicture}
+\end{document}
