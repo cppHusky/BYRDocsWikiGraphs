@@ -7,5 +7,6 @@ retval=$?
 if [[ "${retval}" -eq 0 ]]; then
 	inkscape --export-type=svg -n 1 "${base}.pdf"
 	rm -v "${base}.aux" "${base}.log"
+	rm -rfv "_minted-${base}"
 fi
 exit "${retval}"
