@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=20mm,y=20mm]
+	\draw[->](-2.5,0)--(2,0)node[below]{\(t\)};
+	\draw[->](0,-.6)--(0,1.5)node[right]{\(f(t)\)};
+	\draw(0,0)node[below left]{\(O\)};
+	\foreach \x in {-2,-1,1}{
+		\draw(\x,0)node[below]{\(\x\)};
+	}
+	\draw(0,1)node[above left]{\(1\)};
+	\draw(-2,0)--(-2,1)--(0,1)--(1,0);
+\end{tikzpicture}
+\end{document}
