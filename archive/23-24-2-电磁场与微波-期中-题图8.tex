@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=15mm,y=15mm]
+	\draw[->](0,0)--(3,0)node[below]{\(z\)};
+	\draw[->](0,0)--(0,2)node[left]{\(x\)};
+	\draw(0,0)circle(1);
+	\draw[dashed](0,0)ellipse(1 and .3);
+	\draw[->](0,0)--node[above]{\(a\)}(45:1)node[right]{\(Q\)};
+	\draw[<->](0,-1.5)--node[above]{\(d\)}++(2.5,0);
+	\fill(2.5,0)circle(.04);
+	\draw[very thin,darkgray](0,0)--(0,-1.6) (2.5,0)--(2.5,-1.6);
+	\node at(2,-.5){\(\varepsilon\)};
+\end{tikzpicture}
+\end{document}
