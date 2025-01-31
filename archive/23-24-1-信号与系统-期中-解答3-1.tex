@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=25mm,y=10mm]
+	\draw[->](-.2,0)--(1.2,0)node[below]{\(t\)};
+	\draw[->](0,-1.2)--(0,1.2)node[above]{\(x_2(t)\)};
+	\draw(0,0)node[below left]{\(O\)};
+	\draw(0,1)node[left]{\(1\)};
+	\draw(0,-1)node[left]{\(-1\)};
+	\draw(1,0)node[above]{\(1\)};
+	\draw(.5,0)node[below left]{\(\frac12\)};
+	\draw[domain=0:1,samples=150]plot(\x,{sin(360*\x)});
+	\draw[dashed](0,1)--++(.25,0);
+	\draw[dashed](0,-1)--++(.75,0);
+\end{tikzpicture}
+\end{document}
