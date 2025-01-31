@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=12mm,y=12mm]
+	\draw(-3,0)--(3,0);
+	\draw(0,-3)--(0,3);
+	\draw(0,0)circle(2.5);
+	\draw(.8,0)circle(1);
+	\node at(-2,-.5){\(\rho\)};
+	\fill(0,0)circle(.05) (.8,0)circle(.05) (.4,.6)circle(.05);
+	\draw[densely dotted](.4,.6)circle(.08)node[right]{\(P\)};
+	\draw[->](.8,0)--node[left=.8mm]{\(a\)}($(.8,0)+(45:1)$);
+	\draw[->](0,0)--node[left=.8mm]{\(b\)}(145:2.5);
+	\draw[<->](0,-.2)--node[below]{\(c\)}(.8,-.2);
+	\draw(.8,0)--(.8,-.3);
+\end{tikzpicture}
+\end{document}
