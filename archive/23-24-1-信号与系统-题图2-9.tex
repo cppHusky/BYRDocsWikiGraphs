@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=25mm,y=15mm,every path/.style={->}]
+	\node(h1t)at(0,1)[draw,rectangle]{\(h_1(t)\)};
+	\node(oplus)at(1,0)[draw,forbidden sign,minimum size=8mm,rotate=45]{};
+	\node at(1,0)[draw,forbidden sign,minimum size=8mm,rotate=-45]{};
+	\draw(-1.5,0)--node[above]{\(e(t)\)}(-1,0)--(-1,1)--(h1t);
+	\draw(-1,0)--(-1,-1)--(1,-1)--(oplus);
+	\draw(h1t)--(1,1)--(oplus);
+	\draw(oplus)--+(.5,0)node[above]{\(r(t)\)};
+	\draw[dashed](-1.1,-1.2)rectangle(1.2,1.6);
+	\node at(-.8,1.4){\(h(t)\)};
+\end{tikzpicture}
+\end{document}
