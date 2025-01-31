@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=20mm,y=20mm]
+	\begin{scope}
+		\draw[->](-.5,0)--(2.5,0)node[below]{\(t\)};
+		\draw[->](0,-.5)--(0,1.5)node[right]{\(e(t)\)};
+		\draw(0,0)node[below left]{\(O\)};
+		\foreach \x in {1,2}{
+			\draw(\x,0)node[below]{\(\x\)};
+		}
+		\draw(0,1)node[left]{\(1\)};
+		\draw(0,1)--(2,1)--(2,0);
+	\end{scope}
+	\begin{scope}[shift={(3.5,0)}]
+		\draw[->](-.5,0)--(3.5,0)node[below]{\(t\)};
+		\draw[->](0,-.5)--(0,1.5)node[right]{\(r(t)\)};
+		\draw(0,0)--(1,1)--(2,1)--(3,0);
+		\draw(0,0)node[below left]{\(O\)};
+		\foreach \x in {1,2,3}{
+			\draw(\x,0)node[below]{\(\x\)};
+		}
+		\draw(0,1)node[left]{\(1\)};
+		\draw[dashed](1,0)--(1,1)--(0,1) (2,0)--(2,1);
+	\end{scope}
+\end{tikzpicture}
+\end{document}
