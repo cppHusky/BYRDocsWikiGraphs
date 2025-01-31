@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=30mm,y=20mm,every path/.style={->}]
+	\node(1)at(0,0)[draw]{\(h_1(n)\)};
+	\node(2)at(1,.5)[draw]{\(h_1(n)\)};
+	\node(3)at(1,-.5)[draw]{\(h_2(n)\)};
+	\node(4)at(1.5,0)[draw,circle]{\(\Sigma\)};
+	\draw(-.5,0)--node[above]{\(x(n)\)}(1);
+	\coordinate(0)at(.5,0);
+	\draw(1)--(0);
+	\draw(0)--(.5,.5)--(2);
+	\draw(0)--(.5,-.5)--(3);
+	\draw(2)--(1.5,.5)--node[right]{\(+\)}(4);
+	\draw(3)--(1.5,-.5)--node[right]{\(+\)}(4);
+	\draw(4)--node[above]{\(y(n)\)}+(.5,0);
+\end{tikzpicture}
+\end{document}
