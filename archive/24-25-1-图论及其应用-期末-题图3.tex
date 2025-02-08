@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=20mm,y=20mm,every path/.style={->}]
+	\node(0)at({-sqrt(3)},1)[circle,draw,minimum width=1pt]{};
+	\node(1)at(0,2)[circle,draw,minimum width=1pt]{};
+	\node(2)at(0,0)[circle,draw,minimum width=1pt]{};
+	\node(3)at(2,2)[circle,draw,minimum width=1pt]{};
+	\node(4)at(2,0)[circle,draw,minimum width=1pt]{};
+	\node[left=1mm]at(0){\(V_0\)};
+	\node[left=3mm]at(1){\(V_1\)};
+	\node[left=3mm]at(2){\(V_2\)};
+	\node[right=3mm]at(3){\(V_3\)};
+	\node[right=3mm]at(4){\(V_4\)};
+	\draw(0)--node[above]{\(2\)}(2);
+	\draw(0)--node[above]{\(1\)}(1);
+	\draw(2)--node[right]{\(-3\)}(1);
+	\draw(2)--node[right]{\(4\)}(3);
+	\draw(1)--node[below]{\(2\)}(3);
+	\draw(3)--node[right]{\(-2\)}(4);
+	\draw(2)--node[below]{\(3\)}(4);
+\end{tikzpicture}
+\end{document}
