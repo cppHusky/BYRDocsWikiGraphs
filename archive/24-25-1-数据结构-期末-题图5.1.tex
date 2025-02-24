@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=5mm,y=5mm,every node/.style={draw,circle}]
+	\node at(0,0){A}
+		child{node{B}
+			child{node{E}
+				child[right]{node{J}}
+				child{node{K}}
+				child[left]{node{L}}}
+			child{node{F}
+				child[right]{node{M}
+					child{node{N}}}}}
+		child{node{C}
+			child{node{G}}}
+		child{node{D}
+			child{node{H}
+				child{node{O}}}
+			child[left]{node{I}}};
+	\node at(8,0){P}
+		child{node{Q}}
+		child{node{R}
+			child{node{S}}
+			child{node{T}}
+			child{node{U}}};
+	\node[draw=none]at(0,-15){(a)};
+	\node[draw=none]at(8,-15){(b)};
+\end{tikzpicture}
+\end{document}
