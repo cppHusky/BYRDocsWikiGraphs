@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=20mm,y=20mm,every node/.style={draw,circle}]
+	\node{1}child{
+		node{2}child{
+			node{4}
+		}child{
+			node{5}child{
+				node{6}
+			}child{
+				node{7}
+			}
+		}
+	}child{
+		node{3}
+	};
+\end{tikzpicture}
+\end{document}
