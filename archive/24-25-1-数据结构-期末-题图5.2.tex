@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=20mm,y=12mm,every node/.style={draw,circle},every path/.style={->}]
+	\node(A)at(1,4){A};
+	\node(B)at(0,3){B};
+	\node(D)at(2,3){D};
+	\node(C)at(1,2){C};
+	\node(E)at(0,1){E};
+	\node(F)at(2,1){F};
+	\node(G)at(1,0){G};
+	\tikzset{every node/.style={}}
+	\draw(A)--node[above left]{12}(B);
+	\draw(A)--node[left]{6}(C);
+	\draw(A)--node[above right]{13}(D);
+	\draw(B)--node[right]{4}(E);
+	\draw(C)--node[above right]{3}(B);
+	\draw(C)--node[above left]{10}(D);
+	\draw(C)--node[below right]{5}(E);
+	\draw(C)--node[below left]{1}(F);
+	\draw(D)to[in=-25,out=-25]node[right]{2}(G);
+	\draw(E)--node[above right]{7}(G);
+	\draw(F)--node[left]{3}(D);
+	\draw(F)--node[above]{0.6}(E);
+	\draw(F)--node[above left]{8}(G);
+	\draw(G)to[in=205,out=205]node[left]{1}(B);
+\end{tikzpicture}
+\end{document}
