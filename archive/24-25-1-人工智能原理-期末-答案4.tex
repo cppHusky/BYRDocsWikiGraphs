@@ -1,0 +1,36 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=10,y=10,every node/.style={circle,draw,minimum size=1},level 2/.style={sibling distance=20mm},level 3/.style={sibling distance=10mm}]
+	\node at(0,0){4}
+		child[sibling distance=45mm]{node{4}
+			child{node{5}
+				child{node{}node[draw=none,below]{5}}
+				child{node{}node[draw=none,below]{3}}}
+			child{node{4}
+				child{node{}node[draw=none,below]{3}}
+				child{node{}node[draw=none,below]{1}}
+				child{node{}node[draw=none,below]{4}}}
+			child{node{6}
+				child{node{}node[draw=none,below]{6}}
+				child{node{}node[draw=none,below]{2}}}}
+		child{node{3}
+			child{node{3}
+				child{node{}node[draw=none,below]{1}}
+				child{node{}node[draw=none,below]{3}}}
+			child{node{}
+				child{node{}node[draw=none,below]{4}}
+				child{node{}node[draw=none,below]{0}}}}
+		child[sibling distance=35mm]{node{2}
+			child{node{2}
+				child{node{}node[draw=none,below]{2}}
+				child{node{}node[draw=none,below]{1}}}
+			child{node{}
+				child{node{}node[draw=none,below]{5}}
+				child{node{}node[draw=none,below]{7}}}};
+	\tikzset{every path/.style={red}}
+	\draw(-6.8,-11)--++(.8,.8);
+	\draw(1,-7)--++(.8,.8);
+	\draw(11,-7)--++(.8,.8);
+\end{tikzpicture}
+\end{document}
