@@ -38,11 +38,12 @@ std::string wiki::login(const std::string &url,const std::string &cookie_path,co
 	request.setOpt<curlpp::Options::CookieFile>(cookie_path);
 	request.setOpt<curlpp::Options::CookieJar>(cookie_path);
 	curlpp::Forms form;
+	form.push_back(new curlpp::FormParts::Content("format","json"));
 	form.push_back(new curlpp::FormParts::Content("action","login"));
 	form.push_back(new curlpp::FormParts::Content("lgname",username));
 	form.push_back(new curlpp::FormParts::Content("lgpassword",password));
 	form.push_back(new curlpp::FormParts::Content("lgtoken",login_token));
 	request.setOpt<curlpp::Options::HttpPost>(form);
 	request.setOpt<curlpp::Options::HttpHeader>(header);
-	return wiki::get(url);
+	return wiki::get(request);
 }
