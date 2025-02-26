@@ -20,21 +20,27 @@ std::string wiki::get(const std::string &url,const std::list<std::string> &heade
 	request.setOpt<curlpp::Options::HttpHeader>(header);
 	return get(request);
 }
-std::string wiki::get(const std::string &url,const std::string &cookiejar_path,const std::list<std::string> &header){
+std::string wiki::get_login_token(const std::string &api,const std::string &cookiejar_path,const std::list<std::string> &header){
 	curlpp::Easy request;
-	request.setOpt<curlpp::Options::Url>(url);
+	request.setOpt<curlpp::Options::Url>(api+"?format=json&action=query&meta=tokens&type=login");
 	request.setOpt<curlpp::Options::CookieJar>(cookiejar_path);
 	request.setOpt<curlpp::Options::HttpHeader>(header);
-	return get(request);
-}
-std::string wiki::get_token(const std::string &url,const std::string &cookiejar_path,const std::list<std::string> &header){
-	nlohmann::json response=nlohmann::json::parse(wiki::get(url,cookiejar_path,header));
+	nlohmann::json response=nlohmann::json::parse(wiki::get(request));
 	const std::string token=response["query"]["tokens"]["logintoken"];
 	return token;
 }
-std::string wiki::login(const std::string &url,const std::string &cookie_path,const std::string &username,const std::string &password,const std::string &login_token,const std::list<std::string> &header){
+std::string wiki::get_csrf_token(const std::string &api,const std::string &cookie_path,const std::list<std::string> &header){
 	curlpp::Easy request;
-	request.setOpt<curlpp::Options::Url>(url);
+	request.setOpt<curlpp::Options::Url>(api+"?format=json&action=query&meta=tokens&type=csrf");
+	request.setOpt<curlpp::Options::CookieFile>(cookie_path);
+	request.setOpt<curlpp::Options::HttpHeader>(header);
+	nlohmann::json response=nlohmann::json::parse(wiki::get(request));
+	const std::string token=response["query"]["tokens"]["csrftoken"];
+	return token;
+}
+std::string wiki::login(const std::string &api,const std::string &cookie_path,const std::string &username,const std::string &password,const std::string &login_token,const std::list<std::string> &header){
+	curlpp::Easy request;
+	request.setOpt<curlpp::Options::Url>(api+"?format=json&action=login");
 	request.setOpt<curlpp::Options::CookieFile>(cookie_path);
 	request.setOpt<curlpp::Options::CookieJar>(cookie_path);
 	curlpp::Forms form;
