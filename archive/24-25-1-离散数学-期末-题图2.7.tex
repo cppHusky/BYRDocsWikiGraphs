@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=15mm,y=15mm]
+	\tikzset{every node/.style={draw,circle,minimum width=4,inner sep=0pt}}
+	\node(1)at(0,{sqrt(3)}){};
+	\node(3)at(1,0){};
+	\node(2)at(2,{sqrt(3)}){};
+	\node(4)at(3,0){};
+	\node(5)at(4,{sqrt(3)}){};
+	\tikzset{every node/.style={draw=none}}
+	\node[left]at(1){\(v_1\)};
+	\node[right]at(3){\(v_3\)};
+	\node[left]at(2){\(v_2\)};
+	\node[right]at(4){\(v_4\)};
+	\node[right]at(5){\(v_5\)};
+	\draw (1)--node[left]{\(e_1\)}(3)
+		(3)--node[right]{\(e_3\)}(2)
+		(2)--node[above]{\(e_5\)}(5)
+		(2)--node[left]{\(e_4\)}(4)
+		(4)--node[right]{\(e_6\)}(5);
+	\draw(3.180)to[out=-180,in=-90,distance=20]node[left]{\(e_2\)}(3.270);
+\end{tikzpicture}
+\end{document}
