@@ -1,0 +1,44 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=15mm,y=15mm]
+	\NewDocumentCommand\unit{mm}{\begin{scope}[shift={#1}]
+		\draw(0,0)rectangle(1,1);
+		\draw(0,.25)--+(1,0);
+		\draw(0,.5)--+(1,0);
+		\node at(.75,.75){#2};
+		\begin{scope}[shift={(.18,.6)},scale=.3]
+			\draw(0,0)rectangle(1,1);
+			\draw(0,.25)--+(1,0);
+			\draw(0,.5)--+(1,0);
+		\end{scope}
+	\end{scope}}
+	\unit{(0,0)}{A};
+	\unit{(0,-2)}{B};
+	\unit{(-1,-4)}{D};
+	\unit{(1,-4)}{E};
+	\unit{(2.5,0)}{F};
+	\unit{(2.5,-2)}{C};
+	\draw[-{Triangle[open,length=4mm,width=4mm]}](.5,-1)--+(0,1);
+	\draw[{Straight Barb[length=4mm,width=4mm]}-{Diamond[length=6mm,width=4mm]}](-.2,-3)node[above left]{*}--+(.4,1)node[below right]{1};
+	\draw[{Diamond[open,length=6mm,width=4mm]}-{Straight Barb[length=4mm,width=4mm]}](1.2,-3)node[above right]{1}--+(-.4,1)node[below left]{*};
+	\draw(1,-1.5)node[above right]{1}--(2.5,-1.5)node[above left]{*};
+	\draw[dashed,-{Straight Barb[length=4mm,width=4mm]}](3,-1)--+(0,1);
+	\draw[dashed,-{Triangle[open,length=4mm,width=4mm]}](3.5,.5)--+(1,0);
+	\begin{scope}[shift={(4.5,-.15)}]
+		\draw(0,0)rectangle(1,1.3);
+		\draw(0,.25)--+(1,0);
+		\draw(0,.5)--+(1,0);
+		\node at(.75,.75){G};
+		\begin{scope}[shift={(.18,.6)},scale=.3]
+			\draw(0,0)rectangle(1,1);
+			\draw(0,.25)--+(1,0);
+			\draw(0,.5)--+(1,0);
+			\draw(.5,.5)--+(0,.5);
+			\draw(.3,.65)--++(-.1,.1)--++(.1,.1);
+			\draw(.7,.65)--++(.1,.1)--++(-.1,.1);
+		\end{scope}
+		\node at(.5,1.1){<<接口>>};
+	\end{scope}
+\end{tikzpicture}
+\end{document}
