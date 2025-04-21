@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=15mm,y=15mm]
+	\draw(0,0)node[below]{\(B\)}--(1,0)node[right]{\(C\)}--(1.5,1)node[above]{\(A\)}--cycle;
+	\draw(.9,0)--(.9,.3)node[left]{\(P\)}--(.75,.5);
+	\draw(.9,.3)--(1.1,.2);
+\end{tikzpicture}
+\end{document}
