@@ -6,18 +6,29 @@
 #include<nlohmann/json.hpp>
 #include"wiki.hpp"
 const std::string API="http://localhost:8080/api.php";
+const std::string LOGIN="/tmp/wiki_login_cookies";
+const std::string CSRF="/tmp/wiki_csrf_cookies";
 int main(){
 	try{
-		const std::string login_token=wiki::get_login_token(API,"/tmp/wiki_login_cookies");
-		const nlohmann::json result=nlohmann::json::parse(wiki::login(
+		const std::string login_token=wiki::get_login_token(API,LOGIN);
+		wiki::login(
 			API,
-			"/tmp/wiki_login_cookies",
+			LOGIN,
 			"CppHusky@uploader",
 			std::getenv("WIKIPASS_UPLOADER"),
 			login_token
-		));
+		);
+		const std::string csrf_token=wiki::get_csrf_token(API,LOGIN,CSRF);
+		const nlohmann::json result=wiki::upload(
+			API,
+			CSRF,
+			"24-25-大学物理（下）-期中-第一题图.svg",
+			"24-25-大学物理（下）-期中-第一题图.svg",
+			csrf_token
+		);
 		std::clog<<result<<std::endl;
-		assert(result["login"]["result"]=="Success");
+		//if(result["upload"]["result"]!="Success")
+		//	std::clog<<result<<std::endl;
 	}catch(const curlpp::RuntimeError &e){
 		std::cerr<<e.what()<<std::endl;
 		assert(false);

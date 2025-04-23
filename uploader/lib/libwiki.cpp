@@ -14,42 +14,67 @@ std::string wiki::get(curlpp::Easy &request){
 	request.perform();
 	return response.str();
 }
-std::string wiki::get(const std::string &url,const std::list<std::string> &header){
-	curlpp::Easy request;
+void wiki::init_request(curlpp::Easy &request,const std::string &url,const std::vector<std::pair<std::string,std::string>> &formstr,const std::list<std::string> &header){
 	request.setOpt<curlpp::Options::Url>(url);
 	request.setOpt<curlpp::Options::HttpHeader>(header);
-	return get(request);
+	curlpp::Forms form;
+	for(const std::pair<std::string,std::string> &it:formstr)
+		form.push_back(new curlpp::FormParts::Content(it.first,it.second));
+	request.setOpt<curlpp::Options::HttpPost>(form);
 }
 std::string wiki::get_login_token(const std::string &api,const std::string &cookiejar_path,const std::list<std::string> &header){
 	curlpp::Easy request;
-	request.setOpt<curlpp::Options::Url>(api+"?format=json&action=query&meta=tokens&type=login");
 	request.setOpt<curlpp::Options::CookieJar>(cookiejar_path);
 	request.setOpt<curlpp::Options::HttpHeader>(header);
+	init_request(
+		request,
+		api+"?format=json",
+		{{"action","query"},{"meta","tokens"},{"type","login"}},
+		header
+	);
 	nlohmann::json response=nlohmann::json::parse(wiki::get(request));
-	const std::string token=response["query"]["tokens"]["logintoken"];
-	return token;
+	return response["query"]["tokens"]["logintoken"];
 }
-std::string wiki::get_csrf_token(const std::string &api,const std::string &cookie_path,const std::list<std::string> &header){
+std::string wiki::get_csrf_token(const std::string &api,const std::string &login_cookie_path,const std::string &csrf_cookie_path,const std::list<std::string> &header){
 	curlpp::Easy request;
-	request.setOpt<curlpp::Options::Url>(api+"?format=json&action=query&meta=tokens&type=csrf");
-	request.setOpt<curlpp::Options::CookieFile>(cookie_path);
+	request.setOpt<curlpp::Options::CookieFile>(login_cookie_path);
+	request.setOpt<curlpp::Options::CookieJar>(csrf_cookie_path);
 	request.setOpt<curlpp::Options::HttpHeader>(header);
+	init_request(
+		request,
+		api+"?format=json",
+		{{"action","query"},{"meta","tokens"},{"type","csrf"}},
+		header
+	);
 	nlohmann::json response=nlohmann::json::parse(wiki::get(request));
-	const std::string token=response["query"]["tokens"]["csrftoken"];
-	return token;
+	return response["query"]["tokens"]["csrftoken"];
 }
 std::string wiki::login(const std::string &api,const std::string &cookie_path,const std::string &username,const std::string &password,const std::string &login_token,const std::list<std::string> &header){
 	curlpp::Easy request;
-	request.setOpt<curlpp::Options::Url>(api+"?format=json&action=login");
 	request.setOpt<curlpp::Options::CookieFile>(cookie_path);
 	request.setOpt<curlpp::Options::CookieJar>(cookie_path);
-	curlpp::Forms form;
-	form.push_back(new curlpp::FormParts::Content("format","json"));
-	form.push_back(new curlpp::FormParts::Content("action","login"));
-	form.push_back(new curlpp::FormParts::Content("lgname",username));
-	form.push_back(new curlpp::FormParts::Content("lgpassword",password));
-	form.push_back(new curlpp::FormParts::Content("lgtoken",login_token));
-	request.setOpt<curlpp::Options::HttpPost>(form);
-	request.setOpt<curlpp::Options::HttpHeader>(header);
+	init_request(
+		request,
+		api+"?format=json&action=login",
+		{{"format","json"},{"action","login"},{"lgname",username},{"lgpassword",password},{"lgtoken",login_token}},
+		header
+	);
 	return wiki::get(request);
+}
+nlohmann::json wiki::upload(const std::string &api,const std::string &cookie_path,const std::string &file_name,const std::string &file_path,const std::string &csrf_token,const std::list<std::string> &header){
+	curlpp::Easy request;
+	request.setOpt<curlpp::Options::CookieFile>(cookie_path);
+	init_request(
+		request,
+		api+"?format=json",
+		{
+			{"action","upload"},
+			{"filename",file_name},
+			{"file",std::string{"@"}+file_path},
+			{"token",csrf_token}
+		},
+		header
+	);
+	nlohmann::json response=nlohmann::json::parse(wiki::get(request));
+	return response;
 }
