@@ -1,7 +1,10 @@
+#include<stdexcept>
 #include<format>
+#include<fstream>
 #include<list>
 #include<sstream>
 #include<string>
+#include<system_error>
 #include<curlpp/cURLpp.hpp>
 #include<curlpp/Easy.hpp>
 #include<curlpp/Form.hpp>
@@ -55,26 +58,28 @@ std::string wiki::login(const std::string &api,const std::string &cookie_path,co
 	request.setOpt<curlpp::Options::CookieJar>(cookie_path);
 	init_request(
 		request,
-		api+"?format=json&action=login",
-		{{"format","json"},{"action","login"},{"lgname",username},{"lgpassword",password},{"lgtoken",login_token}},
+		api+"?format=json",
+		{{"action","login"},{"lgname",username},{"lgpassword",password},{"lgtoken",login_token}},
 		header
 	);
 	return wiki::get(request);
 }
 nlohmann::json wiki::upload(const std::string &api,const std::string &cookie_path,const std::string &file_name,const std::string &file_path,const std::string &csrf_token,const std::list<std::string> &header){
 	curlpp::Easy request;
+	std::ifstream file{file_path,std::ios::in|std::ios::binary};
+	if(!file)
+		throw std::runtime_error{std::format("Error: {} doesn't exist.",file_path)};
+	request.setOpt<curlpp::Options::Url>(api+"?format=json");
 	request.setOpt<curlpp::Options::CookieFile>(cookie_path);
-	init_request(
-		request,
-		api+"?format=json",
-		{
-			{"action","upload"},
-			{"filename",file_name},
-			{"file",std::string{"@"}+file_path},
-			{"token",csrf_token}
-		},
-		header
-	);
+	request.setOpt<curlpp::Options::ReadStream>(&file);
+	request.setOpt<curlpp::Options::Upload>(true);
+	curlpp::Forms form;
+	form.push_back(new curlpp::FormParts::Content("action","upload"));
+	form.push_back(new curlpp::FormParts::Content("filename",file_name));
+	form.push_back(new curlpp::FormParts::File("file",file_path));
+	form.push_back(new curlpp::FormParts::Content("token",csrf_token));
+	request.setOpt<curlpp::Options::HttpPost>(form);
+	request.setOpt<curlpp::Options::HttpHeader>(header);
 	nlohmann::json response=nlohmann::json::parse(wiki::get(request));
 	return response;
 }

@@ -26,9 +26,8 @@ int main(){
 			"24-25-大学物理（下）-期中-第一题图.svg",
 			csrf_token
 		);
-		std::clog<<result<<std::endl;
-		//if(result["upload"]["result"]!="Success")
-		//	std::clog<<result<<std::endl;
+		assert(result["upload"]["result"]=="Warning");
+		assert(result["upload"].find("warnings")!=result["upload"].end());
 	}catch(const curlpp::RuntimeError &e){
 		std::cerr<<e.what()<<std::endl;
 		assert(false);
