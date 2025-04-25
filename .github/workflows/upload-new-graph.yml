@@ -14,8 +14,8 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
           TZ: Etc/UTC
         run: |
-          apt update
-          apt install -y git g++ gdb make cmake curl libcurl4-openssl-dev libcurlpp-dev nlohmann-json3-dev
+          sudo apt update
+          sudo apt install -y git g++ gdb make cmake curl libcurl4-openssl-dev libcurlpp-dev nlohmann-json3-dev
       - name: Compile upload
         run: |
           mkdir build
