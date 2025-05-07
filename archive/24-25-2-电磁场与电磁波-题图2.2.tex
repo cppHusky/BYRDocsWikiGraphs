@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=18mm,y=18mm]
+	\draw[->](0,0)--(1.6,0)node[above]{$x$};
+	\draw[->](0,0)--(0,1.2)node[right]{$y$};
+	\draw(0,0)rectangle(1.2,.8);
+	\node at(0,-.1){$0$};
+	\node at(.5,-.15){$\varphi=0$};
+	\node at(.5,.95){$\varphi=0$};
+	\node at(-.3,.4){$\varphi=0$};
+	\node at(1.5,.4){$\varphi=0$};
+	\node at(1,-.1){$a$};
+	\node at(-.1,.8){$b$};
+\end{tikzpicture}
+\end{document}
