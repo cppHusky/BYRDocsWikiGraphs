@@ -19,7 +19,8 @@ int main(int argc,char *argv[]){
 		}
 		std::string file_path{argv[1]};
 		std::filesystem::path fs_path{file_path};
-		const std::string login_token=wiki::get_login_token(API,LOGIN);
+		std::clog<<"Logging in... ";
+		const std::string login_token=wiki::get_login_token(API,LOGIN,HEADER);
 		wiki::login(
 			API,
 			LOGIN,
@@ -28,8 +29,9 @@ int main(int argc,char *argv[]){
 			login_token,
 			HEADER
 		);
-		std::clog<<std::format("Logged in. Started uploading {}...",argv[1])<<std::endl;
-		const std::string csrf_token=wiki::get_csrf_token(API,LOGIN,CSRF);
+		std::clog<<"Logged in."<<std::endl;
+		std::clog<<std::format("Started uploading {}...",argv[1])<<std::endl;
+		const std::string csrf_token=wiki::get_csrf_token(API,LOGIN,CSRF,HEADER);
 		if(!std::filesystem::exists(fs_path)){
 			std::cerr<<std::format("{}: file does not exist.",file_path)<<std::endl;
 			return 2;
@@ -52,6 +54,8 @@ int main(int argc,char *argv[]){
 			std::ofstream logs{std::format("{}.log",filename)};
 			logs<<result<<std::endl;
 		}
+		else
+			std::clog<<"Success."<<std::endl;
 	}catch(const curlpp::RuntimeError &e){
 		std::cerr<<e.what()<<std::endl;
 		assert(false);
