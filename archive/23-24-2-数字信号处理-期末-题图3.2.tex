@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=18mm,y=10mm]
+	\tikzset{every path/.style={->}}
+	\node(AD)at(0,0)[draw,rectangle]{A/D};
+	\node(times)at(1,0)[draw,circle]{$\times$};
+	\node(DFT)at(2,0)[draw,rectangle]{DFT};
+	\draw(-1,0)--node[above]{$x_a(t)$}(AD);
+	\draw(0,-1)--node[right]{$f_s$}(AD);
+	\draw(AD)--node[above]{$x(n)$}(times);
+	\draw(1,-1)--node[right]{$w(n)$}(times);
+	\draw(times)--node[above]{$s(n)$}(DFT);
+	\draw(DFT)--node[above]{$S(k)$}(3,0);
+\end{tikzpicture}
+\end{document}
