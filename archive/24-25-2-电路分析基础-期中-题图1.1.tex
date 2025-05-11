@@ -1,0 +1,11 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[background rectangle/.style={fill=white},show background rectangle,x=30mm,y=20mm]
+	\ctikzset{european}
+	\draw(0,0)to[R=$4\Omega$](0,2)--(1,2);
+	\draw(0,0)to(1,0)coordinate(F)
+		(F)to[isource=$4\,\mathrm A$](1,1)to[R=$2\Omega$](1,2)
+		(F)to(2,0)to[vsource=$2\,\mathrm V$](2,2)to(1,2);
+\end{circuitikz}
+\end{document}
