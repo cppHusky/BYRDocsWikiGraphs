@@ -1,0 +1,8 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[background rectangle/.style={fill=white},show background rectangle,x=25mm,y=35mm,european,american voltages]
+	\draw(0,0)to[V=$10\,\mathrm V$,invert](0,1)to[R=$6\,\Omega$,-*](1,1)to[I<=$5\,\mathrm A$](1,.5)to[R=$2\,\Omega$,-*](1,0)--(0,0);
+	\draw(1,1)--(2,1)to[R=$4\,\Omega$,i>^=$i$](2,0)--(1,0);
+\end{circuitikz}
+\end{document}
