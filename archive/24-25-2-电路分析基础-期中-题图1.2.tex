@@ -1,0 +1,11 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[background rectangle/.style={fill=white},show background rectangle,x=20mm,y=20mm,european,american voltages]
+	\draw(4,0)node[right]{b}to[short,o-*](2,0)to[short,-*](1,0)--(0,0);
+	\draw(0,2)to[short,-*](1,2)to[short,-*](2,2)to[V=$2\,\mathrm V$,invert](3,2)to[R=$1\,\Omega$,-o](4,2)node[right]{a};
+	\draw(0,0)to[I=$3\,\mathrm A$](0,2);
+	\draw(1,0)to[R=$2\,\Omega$](1,2);
+	\draw(2,0)to[R=$2\,\Omega$](2,1)to[V=$2\,\mathrm V$,invert](2,2);
+\end{circuitikz}
+\end{document}
