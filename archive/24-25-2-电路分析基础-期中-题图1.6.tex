@@ -1,0 +1,8 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[background rectangle/.style={fill=white},show background rectangle,x=25mm,y=35mm,european,american voltages]
+	\draw(0,0)to[vsource=$100\,\mathrm V$,invert](0,1)to[R=$20\,\Omega$](1,1)to[R=$30\,\Omega$](1,0)--(0,0);
+	\draw(1,0)--(3,0)to[C=$C$,i^<=$i_C$,v<=$u_C$](3,1)to[cogsw,invert](1,1);
+\end{circuitikz}
+\end{document}
