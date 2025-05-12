@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[background rectangle/.style={fill=white},show background rectangle,x=15mm,y=25mm,european]
+	\draw(0,0)to[I,i^>=$5\,\mathrm A$](0,1);
+	\draw(1,0)to[R,l^=$1\,\Omega$,*-*](1,1);
+	\draw(2,0)to[R,l^=$1\,\Omega$,*-*](2,1);
+	\draw(3,0)to[I,i^>=$5\,\mathrm A$,*-*](3,1);
+	\draw(3,1)to[R,l^=$2\,\Omega$](4,1);
+	\draw(4,0)to[I,i_>=$5\,\mathrm A$,*-*](4,1);
+	\draw(5,0)to[R,l_=$3\,\Omega$,*-*](5,1);
+	\draw(6,0)to[R,l_=$3\,\Omega$,*-*](6,1);
+	\draw(7,0)to[I,i<_=$\frac{13}3\,\mathrm A$](7,1);
+	\draw(0,0)--(7,0);
+	\draw(0,1)--(3,1)node[above left]{(1)};
+	\draw(4,1)node[above right]{(2)}--(7,1);
+	\draw(3.5,0)node[rground]{};
+\end{circuitikz}
+\end{document}
