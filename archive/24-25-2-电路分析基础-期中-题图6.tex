@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[background rectangle/.style={fill=white},show background rectangle,x=20mm,y=25mm,european,american voltages]
+	\draw(0,0)to[short,-*](1,0)to[short,-o](2,0)node[right]{b};
+	\draw(1,0)to[I,i_>=$5\,\mathrm A$,-*](1,1);
+	\draw(0,0)to[vsourceEU,v_<=$10\,\mathrm V$](0,.5)to[cvsourceEU,v_>=$3i$](0,1)--(1,1)to[R,l^=$R{=}5\,\Omega$,i>^=$i$,-o](2,1)node[right]{a};
+\end{circuitikz}
+\end{document}
