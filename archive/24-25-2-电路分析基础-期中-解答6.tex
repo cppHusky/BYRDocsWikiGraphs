@@ -1,0 +1,7 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[background rectangle/.style={fill=white},show background rectangle,x=20mm,y=20mm]
+	\draw(1,0)node[right]{b}to[short,o-](0,0)to[vsourceEU,american voltages,v^<=$10\,\mathrm V$](0,1)to[european resistor,l^=$8\,\Omega$,-o](1,1)node[right]{a};
+\end{circuitikz}
+\end{document}
