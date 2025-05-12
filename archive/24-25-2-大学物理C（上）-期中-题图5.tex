@@ -1,0 +1,11 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=15mm,y=15mm]
+	\draw[->](-1.2,0)--(1.2,0)node[below]{$x$};
+	\draw[->](0,-1.2)--(0,1.2)node[right]{$y$};
+	\draw(0,0)node[below left]{$O$}circle(1);
+	\draw(0,0)--node[above]{$r$}(45:1)node[above]{$\lambda$};
+	\draw(0:.2)arc(0:45:.2)node[right]{$\phi$};
+\end{tikzpicture}
+\end{document}
