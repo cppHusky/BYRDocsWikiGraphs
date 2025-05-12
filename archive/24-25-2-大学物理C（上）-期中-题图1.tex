@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=15mm,y=15mm]
+	\draw[line width=3mm](-.2,0)--(3,0)--(3,1);
+	\draw(0,0)rectangle(.5,.5);
+	\node at(.25,.25){$m$};
+	\draw[->](.1,.6)--node[above]{$v_0$}++(.3,0);
+	\draw[decoration={aspect=0.3,segment length=3mm,amplitude=3mm,coil},decorate](1,.4)--(3,.4);
+	\draw(.98,0)rectangle(1,.8);
+	\draw(1,-.2)--++(0,-.2)node[below]{$0$};
+	\draw[->](1,-.3)--++(.8,0)node[right]{$x$};
+\end{tikzpicture}
+\end{document}
