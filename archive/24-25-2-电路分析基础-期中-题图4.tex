@@ -1,0 +1,8 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[background rectangle/.style={fill=white},show background rectangle,x=35mm,y=40mm,european,american voltages]
+	\draw(0,0)to[short,-*](1,0)to[short,-*](3,0)--(4,0)to[vsourceEU,v_=$13\,\mathrm V$](4,1)to[R,l_=$3\,\Omega$,-*](3,1)node[above]{(2)}to[R,l_=$2\,\Omega$,-*](1,1)node[above]{(1)}to[R,l_=$1\,\Omega$](0,1)to[vsourceEU,v_=$5\,\mathrm V$](0,0);
+	\draw(1,0)node[rground]{}to[R,l^=$2\,\Omega$](2,.5)to[isource,i_>=$5\,\mathrm A$](3,1)to[R,l^=$3\,\Omega$](3,0)to[R,l_=$2\,\Omega$](2,.5)to[isource,i^>=$5\,\mathrm A$](1,1)to[R,l_=$1\,\Omega$](1,0);
+\end{circuitikz}
+\end{document}
