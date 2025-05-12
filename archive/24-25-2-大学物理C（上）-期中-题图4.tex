@@ -1,0 +1,10 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[background rectangle/.style={fill=white},show background rectangle,x=15mm,y=15mm]
+	\draw[draw=none,pattern=north east lines](2,0)rectangle(2.1,1);
+	\draw[thick](2,0)node[below]{$B$}--(2,1) (0,0)node[below]{$O$}--(0,0.6);
+	\draw[->](-.2,0)--(2.3,0)node[below]{$x$};
+	\draw[<->](0,.4)--node[background rectangle]{$L$}(2,.4);
+\end{tikzpicture}
+\end{document}
