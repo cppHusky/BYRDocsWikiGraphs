@@ -1,0 +1,8 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[background rectangle/.style={fill=white},show background rectangle,x=25mm,y=25mm,european,american voltages]
+	\draw(0,0)to[vsourceEU,v<=$u_s$](0,1)to[R=$R_i$,i>^=$i_1$](1,1)to[R,l_=$R_2$,i>_=$i_2$,v^=$u_2$](1,0)--(0,0);
+	\draw(1,0)--(2,0)to[R,l_=$R_3$,v^<=$u_3$](2,1)to[cisourceEU,i_=$i_c$](1,1);
+\end{circuitikz}
+\end{document}
