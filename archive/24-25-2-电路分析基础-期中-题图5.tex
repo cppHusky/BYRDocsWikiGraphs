@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[background rectangle/.style={fill=white},show background rectangle,x=30mm,y=35mm,european,american voltages]
+	\draw(1,1)to[short,*-](0,1)to[vsourceEU,v^=$3\,\mathrm V$](0,0)to[short,-*](1,0)to[short,-*](2,0)to[short,-*](3,0)--(3.5,0)to[I,i_>=$2\,\mathrm A$](3.5,.6)to[short,-*](3,.6);
+	\draw(1,0)to[R,l_=$2\,\Omega$](1,1)--(1,2)to[I,i<_=$2\,\mathrm A$,v^<=$u_1$,-*](2,2)to[cvsourceEU,v^<=$u$,i_>=$i_4$](3,2)to[short,-*](3,1)to[short,i^>=$i_3$](3,.6)to[R,l_=$2\,\Omega$](3,0);
+	\draw(1,1)to[R,l^=$2\,\Omega$,v_=$u$,i^>=$i_1$,-*](2,1)to[R,l^=$1\,\Omega$,i^=$i_2$](3,1);
+	\draw(2,2)to[R,l_=$2\,\Omega$,i>^=$i_6$](2,1)to[cvsourceEU,v_=$2u$,i>^=$i_5$](2,0);
+	\tikzset{every path/.style={blue,->}}
+	\draw($(1,.5)+(160:.4)$)arc(160:-160:.4)node[right]{$i_{m3}$};
+	\draw($(2.5,.5)+(160:.3)$)arc(160:-160:.3)node[right]{$i_{m4}$};
+	\draw($(2.5,1.5)+(160:.3)$)arc(160:-160:.3)node[right]{$i_{m2}$};
+	\draw($(1.5,1.5)+(160:.3)$)arc(160:-160:.3)node[right]{$i_{m1}$};
+\end{circuitikz}
+\end{document}
