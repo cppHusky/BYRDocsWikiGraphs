@@ -1,0 +1,33 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=20mm,y=20mm]
+	\tikzset{every node/.style={rectangle,draw}}
+	\node(0)at(0,0){\(\begin{aligned}&I_0:\\&E'\rightarrow\cdot E,\$\\&E\rightarrow\cdot AaBa,\$\\&E\rightarrow\cdot BbAb\$,\\&A\rightarrow\cdot c,a\\&B\rightarrow\cdot c,b\end{aligned}\)};
+	\node(1)at(0,2){\(\begin{aligned}&I_1:\\&E'\rightarrow E\cdot,\$\end{aligned}\)};
+	\node(2)at(2,1){\(\begin{aligned}&I_2:\\&E\rightarrow A\cdot aBa,\$\end{aligned}\)};
+	\node(3)at(2,-1){\(\begin{aligned}&I_3:\\&E\rightarrow B\cdot bAb,\$\end{aligned}\)};
+	\node(4)at(0,-2){\(\begin{aligned}&I_4:\\&A\rightarrow c\cdot,a\\&B\rightarrow c\cdot,b\end{aligned}\)};
+	\node(5)at(4,1){\(\begin{aligned}&I_5:\\&E\rightarrow Aa\cdot Ba,\$\\&B\rightarrow\cdot c,a\end{aligned}\)};
+	\node(6)at(4,-1){\(\begin{aligned}&I_6:\\&E\rightarrow Bb\cdot Ab,\$\\&A\rightarrow\cdot c,b\end{aligned}\)};
+	\node(7)at(6,1){\(\begin{aligned}&I_7:\\&E\rightarrow AaB\cdot a,\$\end{aligned}\)};
+	\node(8)at(4,2.5){\(\begin{aligned}&I_8:\\&B\rightarrow c\cdot,a\end{aligned}\)};
+	\node(9)at(6,-1){\(\begin{aligned}&I_9:\\&E\rightarrow BbA\cdot b,\&\end{aligned}\)};
+	\node(10)at(4,-2.5){\(\begin{aligned}&I_{10}:\\&A\rightarrow c\cdot,b\end{aligned}\)};
+	\node(11)at(8,1){\(\begin{aligned}&I_{11}:\\&E\rightarrow AaBa\cdot,\$\end{aligned}\)};
+	\node(12)at(8,-1){\(\begin{aligned}&I_{12}:\\&E\rightarrow BbAb\cdot,\$\end{aligned}\)};
+	\tikzset{every node/.style={},every path/.style={->}}
+	\draw(0)--node[right]{$E$}(1);
+	\draw(0)--node[above]{$A$}(2);
+	\draw(0)--node[below]{$B$}(3);
+	\draw(0)--node[right]{$c$}(4);
+	\draw(2)--node[above]{$a$}(5);
+	\draw(3)--node[below]{$b$}(6);
+	\draw(5)--node[above]{$B$}(7);
+	\draw(5)--node[right]{$c$}(8);
+	\draw(6)--node[below]{$A$}(9);
+	\draw(6)--node[right]{$c$}(10);
+	\draw(7)--node[above]{$a$}(11);
+	\draw(9)--node[below]{$b$}(12);
+\end{tikzpicture}
+\end{document}
