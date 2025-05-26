@@ -1,0 +1,10 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=25mm,y=25mm,european,raised voltages]
+	\ctikzset{multipoles/rotary/arrow=both}
+	\draw(0,1.139)to[vsourceEU,v_>=$10\,\mathrm V$](0,0)to[short,-*](.9,0)--(2,0)to[american inductor,l^=$1\,\mathrm H$,v_<=$u_L$](2,1)to[short,i<_=$i$](1.2,1)node[rotary switch ->=2 in 30 wiper 30,xscale=-1,anchor=in](S){};
+	\draw(0,1.139)to[R,l^=$1\,\Omega$](S.out 1)node[above]{1};
+	\draw(.9,0)to[R,l^=$4\,\Omega$](S.out 2)node[left]{2};
+\end{circuitikz}
+\end{document}
