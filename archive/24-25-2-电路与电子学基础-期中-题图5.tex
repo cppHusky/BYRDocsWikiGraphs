@@ -1,0 +1,8 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=25mm,y=25mm,european,raised voltages]
+	\draw(0,0)to[vsourceEU,v_<=$U_s$](0,1)to[R,l^=$R$](1,1)to[cute closing switch](2,1)to[american inductor,l_=$2\,\mathrm H$,v^>=$u(t)$](2,0)to[short,i_>=$i(t)$](0,0);
+	\draw(1.5,1.3)node{$t=0$};
+\end{circuitikz}
+\end{document}
