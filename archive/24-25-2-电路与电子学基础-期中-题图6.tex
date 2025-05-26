@@ -1,0 +1,11 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=20mm,y=20mm,european,raised voltages]
+	\draw(-1,-1)rectangle(1,1);
+	\draw(0,0)node{$N_R$};
+	\draw(-1,-.8)--++(-.8,0)to[I,i_>=$i_s$]++(0,1.6)--++(.8,0);
+	\draw(-.8,1)--++(0,.8)to[vsourceEU,v_>=$u_s$]++(1.6,0)--++(0,-.8);
+	\draw(1,.8)--++(.8,0)to[R,v_>=$u$]++(0,-1.6)--++(-.8,0);
+\end{circuitikz}
+\end{document}
