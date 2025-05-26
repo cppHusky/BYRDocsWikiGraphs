@@ -1,0 +1,8 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=25mm,y=25mm,european,raised voltages]
+	\draw(0,0)node[left]{B}to[short,-*](1,0)--(2,0)to[R,l_=$1\,\Omega$](2,1)to[short,-*](1,1)to[R,l_=$2\,\Omega$](0,1)node[left]{A}to[I,i<^=$I_S$](0,0);
+	\draw(1,1)to[vsourceEU,v^<=$U_S$,i>^=$I$](1,0);
+\end{circuitikz}
+\end{document}
