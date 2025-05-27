@@ -1,0 +1,7 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=25mm,y=25mm,european,raised voltages]
+	\draw(0,0)to[open,v^<=$u$,o-o](0,.8)to[R,l^=$2\,\Omega$](1,.8)to[vsourceEU,v^>=$4\,\mathrm V$](1,0)--(0,0);
+\end{circuitikz}
+\end{document}
