@@ -1,0 +1,8 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=25mm,y=25mm,european,raised voltages]
+	\draw(0,0)to[vsourceEU,v^<=$u$](0,1)to[C,l^=$25\,\mathrm{\mu F}$](1,1)node[right]{A}to[open,o-o](1,0)node[right]{B}--(0,0);
+	\draw(.15,.5)node[right]{$\dot U_m=8\sqrt2\angle0^\circ$};
+\end{circuitikz}
+\end{document}
