@@ -1,0 +1,2 @@
+clean:*.pdf *.svg
+	rm $^
