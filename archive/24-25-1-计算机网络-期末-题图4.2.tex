@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=20mm,y=20mm]
+	\tikzset{every node/.style={draw,minimum width=12mm,minimum height=6mm}}
+	\node(S)at(0,-1){服务器S};
+	\node(Internet)at(0,0){因特网};
+	\node(R3)at(2,0){R3};
+	\node(R1)at(4,0){R1};
+	\node(R2)at(3,-1.5){R2};
+	\node(lan1)at(6,1){局域网1};
+	\node(lan2)at(6,0){局域网2};
+	\node(lan3)at(6,-1){局域网3};
+	\node(lan4)at(3,-2.5){局域网4};
+	\node(H)at(3,-3.5){主机H};
+	\tikzset{every node/.style={}}
+	\draw(S)--(Internet);
+	\draw(Internet)--(R3)node[below left=1mm and 5mm]{E0};
+	\draw(R3)node[below right=1mm and 5mm]{L0}--(R1)node[below left=1mm and 5mm]{L1};
+	\draw(R1)node[above right=3mm and 1mm]{E0}--(lan1);
+	\draw(R1)node[above right=.2mm and 10mm]{E1}--(lan2);
+	\draw(R1)node[below right=3mm and 1mm]{E2}--(lan3);
+	\draw(R1)node[below left=4.5mm and -2mm]{L0}--(R2)node[above right=3mm and 4mm]{L1};
+	\draw(R2)--node[right]{E0}(lan4);
+	\draw(lan4)--(H);
+\end{tikzpicture}
+\end{document}
