@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=20mm,y=20mm]
+	\draw[->](-1.6,0)--(1.6,0)node[below]{$t$};
+	\draw[->](0,-.6)--(0,1.6)node[right]{$f(t)$};
+	\draw(-1.6,.8)node{$\cdots$};
+	\draw(1.6,.8)node{$\cdots$};
+	\draw(-1,0)--(-1,1)--(-.5,1)--(-.5,0);
+	\draw(0,0)--(0,1)--(.5,1)--(.5,0);
+	\draw(1,0)--(1,1)--(1.5,1);
+	\foreach \x/\l in {-1/$-T$,-.5/$-\frac T2$,.5/$\frac T2$,1/$T$}{
+		\draw(\x,0)node[below]{\l};
+	}
+	\draw(0,0)node[below left]{$O$};
+	\draw(0,1)node[left]{$1$};
+\end{tikzpicture}
+\end{document}
