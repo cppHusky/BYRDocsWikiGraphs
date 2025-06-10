@@ -55,7 +55,10 @@ int main(int argc,char *argv[]){
 			logs<<result<<std::endl;
 		}
 		else
-			std::clog<<"Success."<<std::endl;
+			std::clog<<std::format(
+				"Success. See https://wiki.byrdocs.org/w/文件:{} for details.",
+				filename
+			)<<std::endl;
 	}catch(const curlpp::RuntimeError &e){
 		std::cerr<<e.what()<<std::endl;
 		assert(false);
