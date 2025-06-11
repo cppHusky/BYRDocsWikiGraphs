@@ -64,7 +64,7 @@ std::string wiki::login(const std::string &api,const std::string &cookie_path,co
 	);
 	return wiki::get(request);
 }
-nlohmann::json wiki::upload(const std::string &api,const std::string &cookie_path,const std::string &file_name,const std::string &file_path,const std::string &csrf_token,const std::list<std::string> &header){
+nlohmann::json wiki::upload(const std::string &api,const std::string &cookie_path,const std::string &file_name,const std::string &file_path,const std::string &csrf_token,const bool ignorewarnings,const std::list<std::string> &header){
 	curlpp::Easy request;
 	std::ifstream file{file_path,std::ios::in|std::ios::binary};
 	if(!file)
@@ -78,6 +78,8 @@ nlohmann::json wiki::upload(const std::string &api,const std::string &cookie_pat
 	form.push_back(new curlpp::FormParts::Content("filename",file_name));
 	form.push_back(new curlpp::FormParts::File("file",file_path));
 	form.push_back(new curlpp::FormParts::Content("token",csrf_token));
+	if(ignorewarnings)
+		form.push_back(new curlpp::FormParts::Content("ignorewarnings","1"));
 	request.setOpt<curlpp::Options::HttpPost>(form);
 	request.setOpt<curlpp::Options::HttpHeader>(header);
 	nlohmann::json response=nlohmann::json::parse(wiki::get(request));

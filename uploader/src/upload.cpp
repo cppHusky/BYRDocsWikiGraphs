@@ -13,9 +13,18 @@ const std::string CSRF="/tmp/wiki_csrf_cookies";
 const std::list<std::string> HEADER{std::format("X-Byrdocs-Token:{}",std::getenv("WIKITOKEN"))};
 int main(int argc,char *argv[]){
 	try{
-		if(argc!=2){
-			std::cout<<std::format(R"(Usage: {} <path-to-file>)",argv[0])<<std::endl;
+		bool ignorewarnings=false;
+		if(argc<2||argc>3){
+			std::cout<<std::format(R"(Usage: {} <path-to-file> [--force])",argv[0])<<std::endl;
 			return 1;
+		}
+		else if(argc==3){
+			if(std::string("--force")==argv[2])
+				ignorewarnings=true;
+			else{
+				std::cerr<<"Unknown flag: "<<argv[2]<<std::endl;
+				return 2;
+			}
 		}
 		std::string file_path{argv[1]};
 		std::filesystem::path fs_path{file_path};
@@ -47,6 +56,7 @@ int main(int argc,char *argv[]){
 			filename,
 			file_path,
 			csrf_token,
+			ignorewarnings,
 			HEADER
 		);
 		if(result["upload"]["result"]!="Success"){
