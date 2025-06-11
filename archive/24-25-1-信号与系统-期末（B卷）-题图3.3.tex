@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=20mm,y=20mm]
+	\draw[dashed](-.1,-.5)rectangle(1.1,.8);
+	\draw(.15,.65)node{$h(t)$};
+	\tikzset{every path/.style={->}}
+	\draw(-.5,0)--node[above]{$e(t)$}(0,0);
+	\node(h1)at(.5,.3)[draw]{$h_1(t)$};
+	\node(cross)at(1,0)[draw,circle,minimum width=4mm]{};
+	\draw[-]($(cross)+(-.1,0)$)--++(.2,0) ($(cross)+(0,-.1)$)--++(0,.2);
+	\draw(0,.3)--(h1);
+	\draw(0,.3)--(0,-.4)--(1,-.4)--(cross);
+	\draw(h1)--(1,.3)--(cross);
+	\draw(cross)--node[above]{$r(t)$}+(.5,0);
+\end{tikzpicture}
+\end{document}
