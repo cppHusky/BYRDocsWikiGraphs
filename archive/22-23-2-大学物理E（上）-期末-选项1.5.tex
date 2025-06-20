@@ -1,0 +1,38 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=25mm,y=25mm]
+	\tikzset{decoration={
+		markings,
+		mark=at position 0.5 with {\arrow{>}}
+	}}
+	\begin{scope}
+		\draw[<->](0,1)node[left]{$p$}--(0,0)node[below left]{$O$}--node[below=4mm]{\textbf{(A)}}(1,0)node[below]{$V$};
+		\tikzset{every path/.style={blue}}
+		\draw[postaction={decorate},domain=.8:.2]plot(\x,{.18/\x-.15})node[below=8mm]{绝热};
+		\draw[postaction={decorate},domain=.2:.8]plot(\x,{.15/\x})node[above left=4mm and 2mm]{等温};
+		\draw[postaction={decorate}](.8,{.15/.8})--(.8,{.18/.8-.15})node[above right]{等体};
+	\end{scope}
+	\begin{scope}[shift={(2,0)}]
+		\draw[<->](0,1)node[left]{$p$}--(0,0)node[below left]{$O$}--node[below=4mm]{\textbf{(B)}}(1,0)node[below]{$V$};
+		\tikzset{every path/.style={blue}}
+		\draw[postaction={decorate},domain=.8:.2]plot(\x,{.08/\x+.05})node[below=4mm]{绝热};
+		\draw[postaction={decorate},domain=.2:.8]plot(\x,{.12/\x})node[above left=4mm and 2mm]{等温};
+		\draw[postaction={decorate}](.2,{.08/.2+.05})--(.2,{.12/.2})node[left]{等\\体};
+	\end{scope}
+	\begin{scope}[shift={(4,0)}]
+		\draw[<->](0,1)node[left]{$p$}--(0,0)node[below left]{$O$}--node[below=4mm]{\textbf{(C)}}(1,0)node[below]{$V$};
+		\tikzset{every path/.style={blue}}
+		\draw[postaction={decorate},domain=.25:.8]plot({.2/\x},\x)node[below=7mm]{等温};
+		\draw[postaction={decorate},domain=.8:.25]plot({.1/\x+.4},\x)node[above=4mm]{等温};
+		\draw[postaction={decorate}]({.2/.8},.8)--({.1/.8+.4},.8)node[above left]{等压};
+	\end{scope}
+	\begin{scope}[shift={(6,0)}]
+		\draw[<->](0,1)node[left]{$p$}--(0,0)node[below left]{$O$}--node[below=4mm]{\textbf{(D)}}(1,0)node[below]{$V$};
+		\tikzset{every path/.style={blue}}
+		\draw[postaction={decorate},domain=.2:.8]plot(\x,{.16/\x})node[left=6mm]{绝热};
+		\draw[postaction={decorate},domain=.2:.5]plot(\x,{(2.5*\x-2.75)*\x+1.25})node[above=1mm]{等温};
+		\draw[postaction={decorate},domain=.5:.2]plot({(2.5*\x-2.75)*\x+1.25},\x)node[above=2mm]{绝热};
+	\end{scope}
+\end{tikzpicture}
+\end{document}

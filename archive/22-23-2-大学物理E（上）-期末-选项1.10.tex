@@ -1,0 +1,38 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=25mm,y=25mm]
+	\NewDocumentCommand{\coord}{m}{
+		\draw[->](0,-1)--(0,1)node[right]{$x$};
+		\draw[->](0,0)--(2.8,0)node[below]{$y$};
+		\foreach \y/\t in {.8/$2A$,.4/$A$,0/$0$,-.4/$-A$,-.8/$-2A$}{
+			\draw(0,\y)node[left]{\t};
+		}
+		\draw(1.4,-1.2)node{#1};
+	}
+	\begin{scope}
+		\coord{\textbf{(A)}}
+		\draw[blue,domain=0:2.6]plot(\x,{.4*sin(180*\x-90)});
+		\draw(1,0)node[below]{$1\,\mathrm m$};
+		\draw(2,0)node[above]{$2\,\mathrm m$};
+	\end{scope}
+	\begin{scope}[shift={(4,0)}]
+		\coord{\textbf{(B)}}
+		\draw[blue,domain=0:2.6]plot(\x,{.4*sin(90*\x-90)});
+		\draw(1,0)node[below]{$1\,\mathrm m$};
+		\draw(2,0)node[above]{$2\,\mathrm m$};
+	\end{scope}
+	\begin{scope}[shift={(0,-3)}]
+		\coord{\textbf{(C)}}
+		\draw[blue,domain=0:2.6]plot(\x,{.4*sin(180*\x+90)});
+		\draw(1,0)node[below]{$1\,\mathrm m$};
+		\draw(2,0)node[above]{$2\,\mathrm m$};
+	\end{scope}
+	\begin{scope}[shift={(4,-3)}]
+		\coord{\textbf{(D)}}
+		\draw[blue,domain=0:2.6]plot(\x,{.8*sin(180*\x-90)});
+		\draw(1,0)node[below]{$1\,\mathrm m$};
+		\draw(2,0)node[above]{$2\,\mathrm m$};
+	\end{scope}
+\end{tikzpicture}
+\end{document}
