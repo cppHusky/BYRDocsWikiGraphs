@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=25mm,y=25mm]
+	\draw(0,1)--(0,0)--(.5,0)--(.5,1);
+	\draw[line width=5,-{Triangle[length=5mm]}](.25,-.4)node[below]{吸热}--(.25,.1);
+	\draw[line width=2](0,.45)--(.5,.45);
+	\draw[line width=2](0,.9)--(.5,.9);
+	\draw[line width=3](.25,.9)--(.25,1.1)node[right]{活塞};
+	\node(label)at(-.1,1.4){绝热};
+	\draw[-{Stealth}](label)--(.15,.9);
+	\draw[-{Stealth}](label)to[out=-90,in=120](0,.6);
+	\draw(.4,.2)node{A} (.4,.65)node{B};
+\end{tikzpicture}
+\end{document}
