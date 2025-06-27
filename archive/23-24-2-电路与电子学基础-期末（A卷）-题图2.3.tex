@@ -1,0 +1,7 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=25mm,y=25mm,european,american voltages]
+	\draw(0,0)to[vsourceEU,v^<=$10\,\mathrm V$](0,1)to[cvsourceEU,v_<=$3u_1$](1,1)to[R,l_=$9\,\Omega$](2,1)to[vsourceEU,v^>=$4\,\mathrm V$,i^>=$i$](2,0)to[R,l_=$3\,\Omega$,v^>=$u_1$](0,0);
+\end{circuitikz}
+\end{document}

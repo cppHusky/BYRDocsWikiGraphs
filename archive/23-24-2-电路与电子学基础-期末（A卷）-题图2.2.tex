@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=25mm,y=25mm,european,american voltages]
+	\draw(0,0)to[short,o-*,i>^=$i$](.5,0)to[R,l^=$10\,\Omega$](1.5,0)to[short,*-o,i<^=$6\,\mathrm A$](2,0);
+	\draw(.5,0)to[short,-o,i>_=$3\,\mathrm A$](.5,-1);
+	\draw(1.5,0)to[R,-o,i>^=$2\,\mathrm A$,l^=$5\,\Omega$](1.5,-1);
+\end{circuitikz}
+\end{document}
