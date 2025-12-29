@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=10mm,y=10mm]
+    \draw[->](-3,0)--(2,0)node[below]{\(\sigma\)};
+    \draw[->](0,-1)--(0,1)node[right]{\(\mathrm j\omega\)};
+    \foreach \x in {-2,-1}{
+        \draw(\x,0)node[below]{\(\x\)};
+        \begin{scope}[shift={(\x,0)}]
+            \draw[blue](-.05,-.05)--(.05,.05);
+            \draw[blue](.05,-.05)--(-.05,.05);
+        \end{scope}
+    }
+    \draw[blue](1,0)circle(.05);
+    \draw(1,0)node[below]{\(1\)};
+\end{tikzpicture}
+\end{document}
