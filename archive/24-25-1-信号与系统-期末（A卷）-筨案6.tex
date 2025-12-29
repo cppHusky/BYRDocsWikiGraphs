@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=6mm,y=12mm]
+    \draw[->]($(-2*pi,0)$)--($(2*pi,0)$)node[above]{\(\Omega\)};
+    \draw[->](0,0)--(0,2)node[right]{\(\abs{H(\mathrm e^{\mathrm j\Omega})}\)};
+    \foreach \x in {-6,-4,-2,0,2,4,6}{
+        \draw(\x,0)node[below]{\(\x\)};
+    }
+    \foreach \y in {0.5,1,1.5,2}{
+        \draw(0,\y)node[left]{\(\y\)};
+    }
+    \draw[blue,thick,samples=200,domain={-2*pi}:{2*pi}]plot(\x,{1+cos(\x*180/pi)});
+\end{tikzpicture}
+\end{document}
