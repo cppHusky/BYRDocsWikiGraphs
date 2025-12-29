@@ -60,13 +60,13 @@ int main(int argc,char *argv[]){
 			HEADER
 		);
 		if(result["upload"]["result"]!="Success"){
-			std::clog<<"The uploader bot encountered a non-success result. See the log in current directory for more information."<<std::endl;
+			std::clog<<"\x1b[31mThe uploader bot encountered a non-success result. See the log in current directory for more information.\x1b[0m"<<std::endl;
 			std::ofstream logs{std::format("{}.log",filename)};
 			logs<<result<<std::endl;
 		}
 		else
 			std::clog<<std::format(
-				"Success. See https://wiki.byrdocs.org/w/文件:{} for details.",
+				"\x1b[32mSuccess. See https://wiki.byrdocs.org/w/文件:{} for details.\x1b[0m",
 				filename
 			)<<std::endl;
 	}catch(const curlpp::RuntimeError &e){
