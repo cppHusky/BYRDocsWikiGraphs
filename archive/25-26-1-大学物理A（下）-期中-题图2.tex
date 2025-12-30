@@ -1,0 +1,12 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=20mm,y=20mm]
+    \draw[->](-.1,0)--(1.2,0)node[below]{\(x\)};
+    \draw[->](0,0)--(0,.55)node[right]{\(y\)};
+    \draw(0,0)node[below]{\(O\)};
+    \draw(.6,.05)--(.6,0)node[below]{\(P\)};
+    \draw(.7,-.4)--(.7,0)node[below right]{\(O'\)}--(.7,.4)node[above]{\(M\)};
+    \draw[draw=none,pattern=north east lines](.7,-.4)rectangle(.75,.4);
+\end{tikzpicture}
+\end{document}
