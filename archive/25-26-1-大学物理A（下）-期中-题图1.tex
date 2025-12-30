@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=15mm,y=15mm]
+    \draw(0,-.4)--(0,1.6);
+    \draw(0,0)--(.4,0) (1.2,0)--(1.6,0);
+    \draw[decoration={aspect=.3,segment length=1mm,amplitude=1.5mm,coil},decorate](.4,0)--(1.2,0);
+    \draw[fill=gray](1.35,-.2)[rotate around={20:(1.4,.7)}]rectangle(1.45,1.4);
+    \draw[densely dashed](1.4,0)--(1.4,1);
+    \draw[fill](1.4,.7)circle(.01);
+    \draw(1.4,.2)arc(-90:-75:.5);
+    \draw(1.48,.1)node{\tiny\(\theta\)};
+\end{tikzpicture}
+\end{document}
