@@ -5,6 +5,10 @@
 
 build/
 
+# typ files not in archive
+*.typ
+!archive/*.typ
+
 # tex files not in archive
 *.tex
 !archive/*.tex
