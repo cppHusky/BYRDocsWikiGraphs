@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=25mm,y=25mm]
+	\tikzset{decoration={
+		markings,
+		mark=at position 0.5 with {\arrow{>}}
+	}}
+	\begin{scope}[shift={(6,0)}]
+		\draw[<->](0,1)node[left]{$p$}--(0,0)node[below left]{$O$}--(1,0)node[below]{$V$};
+		\tikzset{every path/.style={blue}}
+		\draw[postaction={decorate},domain=.2:.8]plot(\x,{.16/\x})node[left=6mm]{绝热};
+		\draw[postaction={decorate},domain=.2:.5]plot(\x,{(2.5*\x-2.75)*\x+1.25})node[above=1mm]{等温};
+		\draw[postaction={decorate},domain=.5:.2]plot({(2.5*\x-2.75)*\x+1.25},\x)node[above=2mm]{绝热};
+	\end{scope}
+\end{tikzpicture}
+\end{document}
