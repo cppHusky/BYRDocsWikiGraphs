@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=15mm,y=15mm]
+	\draw[dashed](-2,0)--(3,0);
+	\draw[dashed](30:-2)--(30:1.2);
+	\draw[<-](30:1.2)--(30:3)node[above]{$\overrightarrow{v_0}$};
+	\draw[dashed]($({1*cos(30)},{1*sin(30)})$)--($({1*cos(30)},1)$);
+	\draw[<->]($({1*cos(30)},{1*sin(30)+.2})$)--node[above]{$S$}($(-1.5,{1*sin(30)+.2})$);
+	\draw[dashed,fill=black](-1.5,1)--(-1.5,0)node[above left]{重核}circle(.05)--node[left]{$b$}($({-9/8},{-3*sqrt(3)/8})$);
+	\draw($({-9/8},{-3*sqrt(3)/8})+(120:.1)$)--($({-9/8},{-3*sqrt(3)/8})+(120:.1)+(-150:.1)$)--($({-9/8},{-3*sqrt(3)/8})+(-150:.1)$);
+	\draw[domain=-1:2*sqrt(3)/5]plot(5*\x*\x/4+3/5,\x);
+	\draw(1.5,-.2)node[right]{质子轨道};
+\end{tikzpicture}
+\end{document}
