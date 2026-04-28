@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{tikzpicture}[x=15mm,y=15mm]
+	\draw(0,0)node[below]{$O$}circle(1);
+	\draw[fill=black](2.5,0)circle(.01)node[above]{$q$}--node[above]{$d$}(0,0);
+	\draw[->](0,0)--node[left]{$R$}(50:1);
+\end{tikzpicture}
+\end{document}
