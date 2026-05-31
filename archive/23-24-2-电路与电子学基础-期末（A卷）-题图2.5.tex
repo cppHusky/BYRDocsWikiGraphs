@@ -1,0 +1,8 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=15mm,y=15mm,european,american voltages]
+	\draw(0,0)to[short,o-*](1,0)--(2,0)to[C,l^=$C$](2,1)to[short,i_<=$I_C$](2,2)to[short,-*](1,2)to[short,i_<=$I$](0,2)to[open,o-o,v_>=$U$](0,0);
+	\draw(1,2)to[short,i^>=$I_R$](1,1.2)to[R,l_=$R$](1,0);
+\end{circuitikz}
+\end{document}
