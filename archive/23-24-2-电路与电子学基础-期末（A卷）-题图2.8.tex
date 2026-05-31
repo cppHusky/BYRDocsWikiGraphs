@@ -1,0 +1,10 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=15mm,y=15mm,european,american voltages]
+	\draw(0,0)node[npn,anchor=B](npn){}
+		(npn.base)node[anchor=east]{$7\,\mathrm V$}
+		(npn.collector)node[anchor=south]{$+6.7\,\mathrm V$}
+		(npn.emitter)node[anchor=north]{$6.3\,\mathrm V$};
+\end{circuitikz}
+\end{document}
