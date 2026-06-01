@@ -1,0 +1,11 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=18mm,y=18mm,european,american voltages]
+	\draw(0,0)node[op amp,anchor=out](amp){$A$}--(.6,0)to[short,*-o](1,0)node[below]{$u_O$};
+	\draw(amp.+)to[R,*-o,l=$R_1$]+(-1,0)node[left]{$u_I$};
+	\draw(amp.+)to[R]+(0,-1)node[rground]{};
+	\draw(amp.-)to[R,*-,a=$R$]+(-1,0)node[rground]{};
+	\draw(amp.-)--++(0,.5)to[R,l=$R_f$](.6,.78)--(.6,0);
+\end{circuitikz}
+\end{document}
