@@ -1,0 +1,10 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=18mm,y=18mm,european,american voltages]
+	\draw(0,0)node[op amp,anchor=out](amp){$A$}--(.6,0)to[short,*-o](1,0)node[below]{$u_o$};
+	\draw(amp.+)to[R,-o,l=$R//R_f$]+(-1,0);
+	\draw(amp.-)to[R,l=$10\,k\Omega$,a=$R$]+(-1,0)node[rground]{};
+	\draw(amp.-)--++(0,.5)to[R,a=$100\,k\Omega$,l=$R_f$](.6,.78)--(.6,0);
+\end{circuitikz}
+\end{document}
