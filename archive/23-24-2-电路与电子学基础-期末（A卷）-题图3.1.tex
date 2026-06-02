@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=18mm,y=18mm,european,american voltages]
+	\draw(0,0)node[above]{$v_{I1}$}to[empty diode,o-,l=$D_1$](3,0)to[short,-o,](4,0)node[below]{$v_O$};
+	\draw(0,-1)node[above]{$v_{I2}$}to[empty diode,o-,l=$D_2$](3,-1);
+	\draw(3,0)--(3,-1)to[R,l=$R$](3,-2)node[rground]{};
+\end{circuitikz}
+\end{document}
