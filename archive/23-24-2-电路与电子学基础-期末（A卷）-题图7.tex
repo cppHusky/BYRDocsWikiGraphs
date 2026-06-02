@@ -1,0 +1,10 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=18mm,y=18mm,european,american voltages,american inductors]
+	\draw(0,0)node[op amp,anchor=out](a1){$A_1$}--(0,1)to[R,l=$100\,\mathrm{k}\Omega$,a=$R_2$](-1.32,1)--(a1.-)to[R,*-,a=$R_1$,l=$10\,\mathrm k\Omega$]+(-1,0)node[rground]{};
+	\draw(a1.+)to[R,-o,l=$R_3$]+(-1,0)node[below]{$u_1$};
+	\draw(a1.out)node[below]{$u_{O1}$}to[R,*-*,a=$100\,\mathrm k\Omega$,l=$R_4$]+(1,0)node[op amp,anchor=-](a2){$A_2$}--(1,.7)to[R,l=$R_5$](2.32,.7)--(a2.out)to[short,*-o]++(.5,0)node[below]{$u_O$};
+	\draw(a2.+)to[R]+(-1,0)node[rground]{};
+\end{circuitikz}
+\end{document}
