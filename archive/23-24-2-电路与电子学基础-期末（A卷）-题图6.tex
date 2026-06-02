@@ -1,0 +1,11 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=18mm,y=18mm,european,american voltages,american inductors]
+	\draw(0,0)node[npn,anchor=B](npn){}node[right=.4]{$T$}--(-.5,0)to[R,*-,a=$R_{B2}$](-.5,-2);
+	\draw(2,1.5)node[right]{$U_{CC}$}to[short,o-](-.5,1.5)to[R,a=$R_{B1}$](-.5,0)to[C,a=$C_1$](-2,0)to[R,a=$R_s$](-2,-1)to[vsourceEU,v_>=$u_s$](-2,-2)--(2,-2)to[R,l=$R_L$,v_<=$u_o$](2,.43)to[C,a=$C_2$](npn.C)to[R,l=$R_C$](.46,1.5);
+	\draw(.46,-2)node[rground]{}to[R,l=$R_E$,*-](npn.E)--(.9,-.43)to[C,l=$C_3$](.9,-2);
+	\draw(-1.6,0)to[open,v=$u_i$]+(0,-2);
+	\draw(npn.C)to[short,i_>=$i_C$]+(0,-.3);
+\end{circuitikz}
+\end{document}
