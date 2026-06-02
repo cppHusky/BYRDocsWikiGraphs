@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=18mm,y=18mm,european,american voltages]
+	\draw(0,0)node[op amp,anchor=out](amp){$A$}to[short,-o](.6,0)node[below]{$v_O$};
+	\draw(.2,0)--(.2,.8)to[C,l=$C$](-1.325,.8)--(amp.-)node[below]{$N$}to[R,a=$R_1$,-o]++(-1,0)node[above]{$v_I$};
+	\draw(amp.+)node[above]{$P$}to[R,l=$R_2$]++(0,-1)node[rground]{};
+\end{circuitikz}
+\end{document}
