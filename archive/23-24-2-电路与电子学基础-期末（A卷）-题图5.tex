@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=18mm,y=18mm,european,american voltages,american inductors]
+	\draw(0,0)node[rotary switch <-=2 in 30 wiper -30,rotate=90,anchor=west](s){}node[right]{$S$}to[C,v_>=$u_C(t)$,l=$0.1\,\mathrm F$](0,-1)--(1,-1)to[vsourceEU,v_<=$8\,\mathrm V$](1,-.3)to[R,a=$2\,\Omega$](1,.38)--(s.cout 2)node[above]{1};
+	\draw(0,-1)to[short,*-*](-1,-1)--(-2,-1)to[I,i^>=$2\,\mathrm A$](-2,.38)to[short,-*](-1,.38)to[R,l=$4\,\Omega$](s.cout 1)node[above]{2};
+	\draw(-1,.38)to[R,a=$2\,\Omega$](-1,-1);
+\end{circuitikz}
+\end{document}
