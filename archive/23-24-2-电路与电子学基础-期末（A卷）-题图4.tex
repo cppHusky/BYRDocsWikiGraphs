@@ -1,0 +1,8 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\begin{circuitikz}[x=18mm,y=18mm,european,american voltages,american inductors]
+	\draw(2,0)node[right]{b}to[short,o-*](1,0)--(0,0)to[vsourceEU,v<=$u_s$](0,1)to[C,a=$25\,\mu F$](1,1)to[short,*-o](2,1)node[right]{a};
+	\draw(1,0)to[L,a=$0.8\,mH$](1,1);
+\end{circuitikz}
+\end{document}
