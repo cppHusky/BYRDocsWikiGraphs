@@ -1,0 +1,23 @@
+#import "@preview/cetz:0.5.2"
+#set page(width:auto,height:auto,margin:0pt)
+#cetz.canvas({
+	import cetz.draw:*
+	rect((0,0),(1,1),name:"A")
+	content("A",$dot(A)$)
+	rect((0,-2),(1,-1),name:"F")
+	content("F",$dot(F)$)
+	circle((-1,.5),radius:.2,name:"C")
+	content("C",$+$)
+	set-style(line:(mark:(end:(fill:black,symbol:">"))))
+	line((-2,.5),"C",name:"X_i")
+	content("X_i.start",anchor:"south",padding:.1,$dot(X_i)$)
+	content("X_i.end",anchor:"south-east",padding:.1,$+$)
+	line("C","A",name:"X_i'")
+	content((name:"X_i'",anchor:50%),anchor:"south",padding:.1,$dot(X_i')$)
+	line("F",(-1,-1.5),"C",name:"X_f")
+	content((name:"X_f",anchor:85%),anchor:"west",padding:.1,$dot(X_f)$)
+	content((name:"X_f",anchor:90%),anchor:"east",padding:.1,$-$)
+	line("F",(2,-1.5),(2,.5))
+	line("A",(3,.5),name:"X_o")
+	content((name:"X_o",anchor:80%),anchor:"south",padding:.1,$dot(X_o)$)
+})
