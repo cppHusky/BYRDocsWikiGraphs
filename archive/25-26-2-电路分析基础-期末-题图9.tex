@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\circledtextset{resize=real}
+\begin{circuitikz}[x=18mm,y=18mm,european,american voltages,american inductors]
+	\draw(0,0)to[open,o-o,v_<=$u_1$](0,1)to[short,i_>=$i_1$](1,1)to[L,l_=$L_1$](1,0)--(0,0);
+	\draw(1.5,0)to[L,l_=$L_2$](1.5,1)--(2.5,1)to[open,o-o,v^<=$u_2$](2.5,0)to[short,i_>=$i_2$](1.5,0);
+	\draw(0.9,.85)[fill=black]circle(.03);
+	\draw(1.6,.15)[fill=black]circle(.03);
+	\draw(1.25,1.4)node(m){$M$};
+	\draw[->](m)--(1,1.1);
+	\draw[->](m)--(1.5,1.1);
+\end{circuitikz}
+\end{document}
