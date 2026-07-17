@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\circledtextset{resize=real}
+\begin{circuitikz}[x=21mm,y=18mm,european,american voltages,american inductors]
+	\draw(0,0)to[open,o-o,v^<=$\dot U$](0,2)to[R,i>^=$\dot I$,l^=$2\,\Omega$](1,2)--(1.5,2)to[C,l^=$C$](1.5,0)--(0,0);
+	\draw(1,2)to[R,l_=$6\,\Omega$,*-](1,1)to[L,l_=$\mathrm j6\,\Omega$,-*](1,0);
+\end{circuitikz}
+\end{document}
