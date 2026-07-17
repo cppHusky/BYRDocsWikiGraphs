@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\circledtextset{resize=real}
+\begin{circuitikz}[x=24mm,y=24mm,european,american voltages,american inductors]
+	\draw(0,0)node[left]{$1'$}to[open,o-o,v<=$\dot U_1$](0,1)node[left]{$1$}to[cvsourceEU,i>^=$\dot I_1$,v_>=$4\dot I_2$](1,1)to[C,*-*,l^=$-\mathrm j10\,\Omega$](1,0)--(0,0);
+	\draw(1,0)--(2,0)node[right]{$2'$}to[open,o-o,v<=$\dot U_2$](2,1)node[right]{$2$}to[R,l^=$3\,\Omega$,i>_=$\dot I_2$](1,1);
+\end{circuitikz}
+\end{document}
