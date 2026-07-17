@@ -1,0 +1,13 @@
+\documentclass{standalone}
+\usepackage{preset}
+\begin{document}
+\circledtextset{resize=real}
+\begin{circuitikz}[x=18mm,y=21mm,european,american voltages,american inductors]
+	\draw(0,0)to[vsourceEU,v^<=$\dot U$,i_>=$1\angle 0^\circ\,\mathrm A$](0,1)--(1,1)to[L](1,0)--(0,0);
+	\draw(1.5,0)to[L](1.5,1)to[short,i_>=$\dot I$](2,1)to[C,l^=$-\mathrm j1\,\Omega$,*-*](2,0)--(1.5,0);
+	\draw(2,1)to[L,l_=$\mathrm j2\,\Omega$](3,1)node[below]{a}to[open,o-o](3,0)node[above]{b}to(2,0);
+	\draw(0.9,.8)[fill=black]circle(.03);
+	\draw(1.6,.8)[fill=black]circle(.03);
+	\draw(1.25,.9)node{$1:2$};
+\end{circuitikz}
+\end{document}
